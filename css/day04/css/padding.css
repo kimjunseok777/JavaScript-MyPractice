@@ -1,0 +1,55 @@
+p {
+      border: 1px solid #dfdfdf;
+      /*
+      solid 실선, dotted 둥근 점선, dashed 사각 점선, double 이중선
+      */
+}
+#padding-1 {
+      padding: 8px;
+      /*
+      4방향
+      padding: 8px
+
+      2방향
+      padding: 8px 4px (위아래, 오른쪽왼쪽)
+
+      3방향
+      padding: 8px 6px 6px (위, 오른쪽왼쪽, 아래)
+
+      4방향
+      padding: 8px 6px 8px 4px (시계방향)
+      */
+}
+
+#margin-1 {
+      margin: 8px 0px;
+}
+#margin-2 {
+      margin: 16px 8px;
+} 
+/*
+      마진 세로겹침 현상 (더 긴 마진으로 선택된다)
+      >> 위가 마진이 세로로 8px이고, 아래가 마진이 세로로 16px 이라서
+            8px + 16px의 마진이 아니라 16px의 마진만 적용된다.
+
+      마진의 위 아래가 겹쳤을 때 더 긴 마진을 기준으로 한다
+      (좌우는 X, 그냥 더해져서 늘어남)    
+*/
+
+.content-box {
+      width: 300px;
+      height: 300px;
+      padding: 16px;
+      border: 10px solid #000;
+      background-color: aqua;
+}
+.border-box {
+      width: 300px;
+      height: 300px;
+      padding: 16px;
+      border: 10px solid #000;
+      background-color: hotpink;
+      box-sizing: border-box;
+      /*보더든 패딩이든 어떤 짓거리를 해줘도  box_sizing: border-box를
+      해줬기 대문에 width, height 는 300px이다*/
+}

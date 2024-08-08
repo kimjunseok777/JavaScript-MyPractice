@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner2</title>
+    <script defer src="./js/banner2.js"></script>
+    <style>
+        /*glboal*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+  
+        /*common*/
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+  
+        /*banner*/
+        .banner-box {
+            width: 1080px;
+            border: 1px solid #000;
+            margin: 1rem auto;
+            overflow: hidden;
+        }
+  
+        .banner-item {
+            min-width: 100%;
+            height: 300px;
+            background-color: rgb(255, 123, 123);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+  
+        .banner-list > li:nth-of-type(2) {
+            background-color: rgb(99, 99, 255);
+        }
+  
+        .banner-list > li:nth-of-type(3) {
+            background-color: green;
+        }
+  
+        /*shade*/
+        #shade-banner > ul {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+  
+        #shade-banner > ul > li {
+            position: absolute;
+            transition: opacity 2s;
+        }
+  
+        #shade-banner > ul > li:nth-of-type(1) {
+            z-index: 300;
+        }
+  
+        #shade-banner > ul > li:nth-of-type(2) {
+            z-index: 200;
+        }
+  
+        #shade-banner > ul > li:nth-of-type(3) {
+            z-index: 100;
+        }
+  
+        /*slide*/
+        #slide-banner > ul {
+            width: 100%;
+            display: flex;
+            transition: transform 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h2>Banner</h2>
+    <!-- shade banner -->
+    <div id="shade-banner" class="banner-box">
+        <ul class="banner-list">
+            <li class="banner-item flex-center">1</li>
+            <li class="banner-item flex-center">2</li>
+            <li class="banner-item flex-center">3</li>
+        </ul>
+        <div>
+            <button class="shade-prev-btn">prev</button>
+            <button class="shade-next-btn">next</button>
+        </div>
+    </div>
+  
+<!----------------------------------------------------------->
+
+    <!-- slide banner -->
+    <div id="slide-banner" class="banner-box">
+        <ul class="banner-list">
+            <li class="banner-item flex-center">1</li>
+            <li class="banner-item flex-center">2</li>
+            <li class="banner-item flex-center">3</li>
+        </ul>
+        <div>
+            <button class="slide-prev-btn">prev</button>
+            <button class="slide-next-btn">next</button>
+        </div>
+    </div>
+</body>
+</html>

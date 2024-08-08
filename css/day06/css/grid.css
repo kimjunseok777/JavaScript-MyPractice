@@ -1,0 +1,158 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+}
+
+
+/*---------------------------header---------------------------*/
+
+#main-grid-wrapper {
+      display: grid;
+
+      /*grid-template는 "행"과"열"을 정할 때 사용된다*/
+
+      /* grid-template-rows: 60px 360px 100vh 180px; */
+      /*4행이 만들어진다*/
+
+      /* grid-template-columns: 320px 1fr; */
+      /*fr은 grow와 원리가 똑같다고 보면 된다 1fr = grow: 1*/
+
+      /*4행 2열이 만들어 진다*/
+
+      /*선생님이 여기서 1~3까지 정의해줬다고 말씀해주셨는데,
+      어떤 부분이 정의를 내려준 것인지 이해가 되지 않는다 -> 꼭 질문!!!*/
+      grid-template: 
+            "header header" 60px
+            "banner banner" 360px
+            "aside main" 1fr
+            "footer footer" 180px
+            / 320px 1fr
+      ;
+      /*grid-template은 계산하기 복잡하니까 새로 나온 기능 >
+      훨씬 편리하게 작성할 수 있다
+      마찬가지로 "4행 2열"을 구현한 것이다
+      (60px 360px 1fr 180px) (320px 1fr)*/
+}
+
+#main-header {
+      background-color: rgb(255, 169, 169);
+      /* grid-column: 1 / 3; */
+      /*가로 병합*/
+
+      grid-area: header;
+}
+
+
+/*---------------------------banner---------------------------*/
+
+#main-banner-wrapper {
+      background-color: rgb(255, 255, 166);
+      /* grid-column: 1 / 3; */
+
+      grid-area: banner;
+}
+
+/*배너는 1행 4열이다*/
+#main-banner-container {
+      width: 1080px;
+      height: 100%; /*360px 이다*/
+      margin: 0 auto;
+      background-color: rgb(137, 137, 255);
+      display: grid;
+
+      /*그리그 1행 - 360px*/
+      grid-template-rows: 360px;
+
+      /*그리그 4열 - 요소당 1080px*/
+      grid-template-columns: repeat(4, 1080px);
+      /*repeat를 넣어주면 반복되는 카운트 수와, 사이즈를 넣어주면 된다
+      --> 사이즈를 1080px이 아닌 1fr을 넣어준다면 안의 크기만큼 사이즈가 나눠져버린다*/
+      /*1fr = 1080 나누기 4 (요소가 4개 있기 때문에 나누기 4이다)*/
+
+      overflow: hidden;
+      /*hodden을 넣어주지 않으면 1080 x 4 이기 때문에 가로로 길어져서
+      가로스크롤이 생김*/
+}
+
+
+/*---------------------------main---------------------------*/
+
+#main-container-side {
+      background-color: rgb(151, 255, 151);
+      /* grid-column: 1 / 2; */
+
+      grid-area: aside;
+}
+
+#main-container {
+      background-color: rgb(255, 203, 105);
+      /* grid-column: 2 / 3; */
+
+      grid-area: main;
+
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      /*template관련 속성을 줘보자면, 아이템이 얼마나 많을지는 미지수이기 때문에
+      (늘어나고 줄어들 수 있어서 정해진 게 아니다)
+      그래서 "행"은 정해주지 않고, "열"만 정해줄 것이다*/
+      grid-template-columns: repeat(3, 30%);
+
+      grid-template-columns: repeat(auto-fit, 320px);
+      /*열 부분에 auto-fit을 주게 되면 부모 요소 크기에 자식이 알아서 열을 맞춘다*/
+
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      /*minmax( 최소값, 최대값)을 주게되면 화면을 늘이고 줄였을 때 여백없이 보여줄 수도 있다*/
+
+      gap: 10px;
+}
+/*
+      repeat(n, 크기) / auto-fit은 부모 요소 크기에 맞는 값 계산 /
+      minmax(최소값, 최대값) 줄어들거나 더 늘어나지 않도록 설정이 가능
+*/
+/*
+flex와 다르게 grid는 자식을 "n행 n열" 자체를 하나로 보기 때문에
+justify-content: center 와 align-items: center 를 해줬을 때 더 깔금하게 가운데 정렬 해줄 수 있다
+*/
+
+
+#main-container > .main-product-item {
+      height: 200px;
+      background-color: rgb(255, 126, 255);
+}
+/*길이는 30%이고, 높이는 200px인 아이템이 "3단"으로 나눠져서 보여진다*/
+
+
+/*---------------------------footer---------------------------*/
+
+footer {
+      background-color: #eee;
+      /* grid-column: 1 / 3; */
+
+      grid-area: footer;
+}
+
+/*-------------------------------------------------------------*/
+
+/*
+      가급적 정렬 요소는 플렌스로 구현하는 것이 훨씬 편리
+      하지만 바둑판의 형태나, UI의 순서가 바뀌어야하는 경우라면 grid 레이아웃이 좋다
+      따라서 필여에 의하여 구현하는 것이 가장 좋습니다.
+
+      grid좋다고 전부다 grid로 레이아웃을 잡으면 나중에 유지보수하기 많이 힘들어진다
+
+      꼭 필요할 때만 사용하면 될 것 같다
+      
+      반드시 grid나 flex로 구현해야하는 경우는 없음
+      다만 다소 편리할 뿐이다
+
+
+      >>CSS가 익숙해질 때까지는
+      그리그 레이아웃을 사용하는 것은 지양하는 것이 좋다
+
+      보통 하나의 페이지를 여러분이 큰 도움 없이, 완성할 수 있을 때 사용
+      (CSS가 익숙해졌을 때)
+
+      display: flex는 정렬을 위해 사용해도 괜찮다
+*/

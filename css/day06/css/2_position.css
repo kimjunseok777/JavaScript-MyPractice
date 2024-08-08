@@ -1,0 +1,104 @@
+:root {
+      --brand-red: #ff0000;
+      --brand-yellow: rgb(255, 255, 121);
+      --brand-green-lighter: green;
+      --gray-100: #eee;
+      --gray-200: #ddd;
+
+      /*최상위 요소에 (html or :root ...) 하이픈하이픈으로 특정 색상을 저장해 놓는 것*/
+
+      /*이름은 하이픈하이픈(--) 하고 그다음 마음대로 (웬만하면 색상 이름으로)*/
+
+      /*이런식으로 상단에 디자인 토큰 이름 (메인이나 주로 사용하는 색상
+      16진수나 rgba 같은 것들을 기재해놓는 것이 좋다 --> 디자이너들이 하는 일)*/
+}
+
+header {
+      position: fixed;
+      width: 100%;
+      /*
+            block 요소라 할지라도 width를 지정해야함
+            position: fixed 시 뷰포트 기준 전환
+            width를 지정해야만 화면을 끝까지 차지
+      */
+      height: 60px;
+      background-color: var(--brand-red);
+      /*var를 쓰면 굳이 색상을 일일이 적지 않고, "--"을 통해 색상을 불러올 수 있다*/
+
+      z-index: 100;
+      /*
+            z-index는 단위를 100단위나 1000단위로 주는 것이 좋다
+            겹침 요소의 우선순위를 결정하는 값
+      */
+}
+
+section {
+      /*마진60px 이 아니라 패딩60px 이기 때문에 section은 왼쪽 맨 상단에 붙어있다*/
+      padding-top: 60px;
+      /*
+      header의 높이가 60px 이어도 section은 왼쪽 맨 상단에 위치한다.
+      이유는 header에 fixed로 붕 뜬 상태로 절대 고정을 해줬기 때문에
+      블럭형태처럼 밑으로 내려가지 않아, header에 section 요소들이 가려지기 때문이다.
+      */
+
+      height: 50vh;
+      background-color: var(--brand-yellow);
+      position: relative;
+}
+
+section > div {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background-color: var(--brand-green-lighter);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* top: 36px; */
+      /*태그 선택자가 아래에 있는 가상 선택자보다 우선순위가 높아서
+      top: 36px 을 주석처리해준 것이다*/
+}
+
+section > div:first-of-type {
+      top: 60px;
+      left: 0;
+}
+section > div:nth-of-type(2) {
+      bottom: 10%;
+      right: 15%;
+}
+section > div:nth-of-type(3) {
+      top: 60px;
+      left: 0;
+      z-index: 1;
+}
+/*
+absolute :
+
+1. 기준 요소 relative --> relative가 없으면 body태그가 된다
+2. 절대 위치 지정 --> 겹친다면 z-index로 우선순위 지정
+3. top left right bottom을 통해서 기준 요소에서 어느
+      위치로 이동 시킬 것인지 결정
+*/
+
+main {
+      display: flex;
+      height: 300vh;
+}
+
+main > aside {
+      position: sticky;
+      top: 60px;
+      /*상단의 top이 60px 즈음 남았을 때 이동하겠다*/
+      height: calc(100vh - 60px);
+      width: 320px;
+      background-color: cadetblue;
+      /*
+            sticky :
+            특정 기준에 따라 (상단에 몇px이 남았는가)
+            해당 기준을 만족하면 fixed 처럼 뷰포트에 의존하여
+            스크롤과 상관없이 요소가 위치
+      */
+}
+

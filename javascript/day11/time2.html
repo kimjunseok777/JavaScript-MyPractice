@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>0</div>
+    <div class="num_1">234</div>
+    <div class="num_2">3.432</div>
+    <div class="num_3">-2.653</div>
+    <!----------------------------------------------------------------->
+    <script>
+
+        // setTimeout , setInterval 비동기 함수 :
+
+        setTimeout(() => {
+            alert('5초가 지났습니다')
+            window.location.href = '/javascript/day10/board.html'
+        }, 5000)
+
+        const $div = document.querySelector('div')
+        setInterval(() => {
+            const count = parseInt($div.innerText)
+            $div.innerText = count + 1
+        }, 100)
+
+        //----------------------------------------------------------------
+
+        // parseInt 함수 :
+
+        // const $num1 = document.querySelector('.num_1')
+        // console.log($num1)  //  <div class="num_1">234</div>
+        // const str1 = parseInt($num1.innerText)
+        // console.log(str1)  //  234
+
+        // const $num2 = document.querySelector('.num_2')
+        // const str2 = parseInt($num2.innerText)
+        // console.log(str2)  //  3  -->  parseInt 는 실수를 정수로 바꿔주기에 3.432 에서 3이 된다
+
+        // const $num3 = document.querySelector('.num_3')
+        // const str3 = parseInt($num3.innerText)
+        // console.log(str3)  //  -2
+        
+    </script>
+<!----------------------------------------------------------------->
+</body>
+</html>

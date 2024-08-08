@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        태그 선택자
+            html 파일 안의 지정한 모든 요소 선택
+            ex > p { ... } / div { ... }...등
+
+
+        id, class 선택자
+            html 파일 안의 틀정 고유 id(단수) 혹은 특정 class(복수) 속성을 지닌 요소를 선택 
+            ex>
+                #menu-item( #-아이디명 ) {
+                    ...CSS 문법
+                }
+
+                .menu-item( .-클래스명 ) {
+                    ...CSS 문법
+                }
+                단, class는 한 요소에 중복 부여가 가능하다
+    -->
+    <style>
+        #header {
+            height: 48px;
+            background-color: yellow;
+        }
+        .header-menu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .header-menu-item {
+            background-color: red;
+        }
+        .w-300 {
+            background-color: blue;
+        }
+        /*중복된 class에서는 나중에 나오는 것이 기존에 있던 것을 덮어 씌운다*/
+        /*중복된 class는 여러 css 속성을 부여하기 위함 뿐 아니라 동적으로 class를 넣어줄 때도 쓸 수 있다*/
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <menu class="header-menu">
+            <div class="header-menu-item">아침메뉴</div>
+            <div class="header-menu-item">점심메뉴</div>
+            <div class="header-menu-item">저녁메뉴</div>
+        </menu>
+        <menu class="header-menu">
+            <div class="header-menu-item w-300">아침메뉴</div>
+            <div class="header-menu-item">점심메뉴</div>
+            <div class="header-menu-item">저녁메뉴</div>
+        </menu>
+        <!-- 
+            class 속성은 여러 요소를 선택하여 중복된 CSS를 줄일 때 사용할 수 있다
+            class = w-300 flex-between font-red --- 공통되는 css 재사용 (어디에서나 쓸 수 있음)
+
+            어떤 특정한 css속성을 부여할 때 사용
+            header-menu-item은 모든 이러한 css를 가지고 있어야 한다 (특정 그룹 내에서만)
+
+            재사용의 여부는 디자이너와 협업하는 것이 굉장히 중요하다
+            개발자가 아무런 소통을 하지 않는다면 힘든 것은 개발자이다 (최종 생산자)
+        -->
+        <nav></nav>
+    </div>
+    <div id="main"></div>
+    <div id="footer"></div>
+    
+</body>
+</html>

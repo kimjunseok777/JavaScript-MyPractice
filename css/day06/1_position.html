@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            div {
+                  width: 200px;
+                  height: 200px;
+                  margin: 16px;
+                  border: 1px solid deeppink;
+            }
+
+            div.static {
+                  position: static;
+                  left: 160px;
+            }
+            /*그냥 static만 써주면 기준점이 없기 때문에 위치를 지정해줘도 이동하지 않는다*/
+
+            div.relative {
+                  position: relative;
+                  left: 160px;
+                  /*margin과 position의 개념은 다르다*/
+                  /*position은 해당 요소의 여백을 포함한 크기를 이동할 수 있다*/
+                  /*relative는 absolute의 기준 요소이다 - "걍 relative는 지가 기준이다"*/
+            }
+      </style>
+</head>
+
+<body>
+      <div class="static"></div>
+      <div class="relative"></div>
+</body>
+</html>

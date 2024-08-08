@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {  /*--> body 태그 아래에 있는 모든 요소에 속성 부여해준다는 것*/
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        form
+        <div>
+            div
+            <p>
+                p
+            </p>
+        </div>
+    </form>
+    <script>
+        const els = document.querySelectorAll("*")  //  * (별) 이것은 html 태그부터 전체 선택하는 태그이다
+        console.log(els) //--> 전체 다 가져온 것을 확인 가능하다 (버블링 제어)
+        for(const el of els) {
+            el.addEventListener('click', (e) => {
+                // e.stopPropagation()  //--> 이벤트 전파 방지 (안해주면, 자식이 부모한테 영향을 미친다)
+                alert(el.tagName)  //--> el 의 태그이름을 알림창으로 띄울 것이다
+            }, true) //--> 캡쳐링 true ( true 해주면, 부모가 자식한테 영향을 미친다 -> 그래서 html 부터 뜨는 것을 확인가능하다 )
+
+            //==> "캡쳐링"은 기본값이 false 이기에 크게 신경쓸 필요 없다
+
+            //==> "버블링"은 신경을 써야한다
+                // 버블링 ex) 자식과 부모 둘 다 Event 를 줘야할 때, 혹은 겹쳐진 요소한테 Event 를 줘야할 때
+                // 볼거없이 무조건 "stopPropagation" 인 이벤트 전파 방지를 무조건 사용해야한다
+        }
+    </script>
+</body>
+</html>

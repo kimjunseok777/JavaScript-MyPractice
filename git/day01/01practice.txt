@@ -1,0 +1,166 @@
+
+git branch  >  이거로 내 브랜치명을 확인할 수 있다 ("main" or "master")
+
+* 브랜치명이 "master" 로 되어있다면 "main" 으로 바꿔줘야한다
+      --> git checkout -b main  )  브랜치명을 생성하면서 이동
+* 이미 main 과 master 가 바꾼적이 있다면 "-b" 빼주고 작성  -->  git checkout main / master
+
+* 깃허브 등록할 때, 폴더는 내용이 비워져있으면 올라가지 않는다.
+      --> 그래서 예시 "example"을 두거나 / 닷 gitkeep( .gitkeep ) 파일 만들어서 올리면 폴더도 같이 올라간다. (내용물이 비어있는 폴더일 때)
+
+* 왼쪽 파일들 list에 초록색 컬러로 뜨는 것은 git 했을 때 등록할 수 있는 폴더들을 애기한다 (색 안바뀌어도 상관 없다)
+
+* git 명령어 작성 하다가 잘못 적었을 때는 뒤로가기는 따로 없고, 그냥 다시 명령어 적으면 덮어지는 개념이다.
+
+* 한 컴퓨터당 하나의 깃허브 아이디밖에 등록되지 않는다 > 더 쓰고 싶다면 ssh 라는 것을 사용해서 조금 어렵게 연결하는 방법이 있다.
+
+* git log   --->   내가 적었던 커밋 내역을 확인할 수 있다.
+
+* git remote  --->  내가 적었던 원격저장소 별명 (원격저장소 이름) 을 확인할 수 있다.
+
+* git branch  --->  내 브랜치명 확인할 수 있다.
+
+* git branch -D 브랜치명  --->  브랜치를 삭제할 수 있다. (병합이 된 후에 보관해야할 이유가 없다면 삭제)
+
+* git branch 브랜치명  --->  브랜치를 생성할 수 있다.
+
+* git config --list   --->   내가 적었던 이메일 / 닉네임을 확인할 수 있다. (git config --global user.name/email)
+
+* git remote remove 별병  --->  별명 삭제
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+git flow (git 순서)
+
+
+1. 먼저 폴더명을 명시해줘야함 (cd)
+      -> 폴더 명시해주는 것은 cd 폴더명 -> (상위 폴더로 이동하는 것은 cd..) (현재 경로에서 밖으로 나가려고 해도 cd.. 하면 된다)
+      -> cd git > cd web 으로 해도 되는데, "/" 를 사용 하여 바로 이동할 수도 있다 --> cd git/web  이런 식으로
+
+      -> cd C:\Users\USER\Desktop\202402_front_ksy\git\web1 (이런식으로 경로 복사를 하여 이동할 수도 있다, ' 절대경로 ' 라고 한다)
+
+
+
+2. 내가 등록할 패키지가 맞는지 (web1 이 맞는지) 확인 하고 "git init" 해주면 된다 (패키지 등록하는 것)
+      -->  내가 저장할 공간 (로컬저장소) 를 생성하는 것이다.
+
+      * git init 했을 때  "git 이라는 명령어를 찾을 수 없습니다"  라는 오류가 뜰 수가 있다
+      -->  이럴 때는 window 검색창에서 "window powershell" 검색  >  관리자로 실행  >
+      Set-ExecutionPolicy -ExecutionPolicy RemoteSigned 이 명령어를 입력해주면 된다  >  이러고 vscode를 껐다가 키면 적상 작동한다
+
+      (셋 하이픈 익세큐션폴리시 < 띄고 > 하이픈 익세큐션폴리시 < 띄고 > 뤼모우트사인드)
+
+
+
+>> 3번 내용은 내 컴퓨터에 "최초 1회" 만 해주면 된다  --> 이미 했다면 3번은 생략
+3. 컴퓨터 환경 설정에 본인의 깃허브 이메일과 닉네임을 등록
+
+      -> git config --global user.email 깃허브 이메일 주소
+      -> git config --global user.name 깃허브 닉네임
+
+      -> 이메일과 닉네임을 모두 입력했으면, "git config --list" 로 이메일과 닉네임을 잘 입력했는지 확인할 수 있다 > "q" 를 누르면 바로 다시 나갈 수 있다
+      git config --list 했는데 이메일이나 닉네임이 안나온다면 enter 를 누르면 다음줄로 이동하니 enter 눌러서 확인할 수 있다
+
+
+
+4. 이제 "원격저장소" 와 "로컬저장소" 를 연결해주면 된다
+      -> git remote add origin '등록할 레포지토리 주소'     ex) git remote add origin https://github.com/kimjunseok777/test1.git
+
+      *add 뒤에 "origin" 은 내 맘대로 변경해줘도 된다 > 원격 저장소에 이름(별명) 정해주는 것 (origin 이름은 내 마음대로 정해줘도 됨, 보통 origin 많이 씀)
+
+      -> 원격과 로컬 저장소를 연결했으면, 잘 연결됐는지 확인하려면  git remote  를 입력해줘서 확인할 수 있다
+            "git remote" -> 입력했는데, 내가 작성한 원격 저장소 별명 (origin) 이 뜨면 잘 연결되었다는 소리이다.
+
+      -> 연결까지 모두 완료되었다면, 이제 남은 것은  " add,  commit,  push "  만 해주면 된다!!
+            -> add 로 등록할 파일 정해주고 / commit 으로 등록할 파일 커밋메세지 정해주고 / push 로 등록하면 된다.
+            * 근데 만약 github 에서 레포지토리 만들 때 README.md 를 추가해줬으면 오류가 뜰 수 있다
+                  -> 내 깃허브 레포지토리에는 (원격 저장소에는) README 파일이 있는데, 현재 내가 등록할 파일에는 없기 때문에 pull 을 해줘야한다.
+
+
+
+5. git add .  (폴더에 파일을 모두 올리겠다는 뜻  >  "git add 파일명" 이렇게 작성해줘도 된다)
+
+
+
+6. git commit -m 'init'  (여기서 "init"  부분은 내 마음대로 작성해도 상관 없다(커밋 메세지라고 한다) (등록할 때마다 작성)
+      -> 어떤 내용인지 알 수 있게끔 작성하면 됨)  ex) init, start, fix, complete ... 등등 맘대로 작성 / 팀이라면 컨벤션 정해서 작성 )
+      -> 이렇게 작성해주고 enter 해주면 '몇개의 파일' 이 바뀌었고, '몇개의 줄' 이 올라갔어요 ~ 라는 내용이 뜬다
+
+
+
+7. git push origin main  (왼쪽 하단에 분기가 "main" 인지 "master" 인지 잘 확인해야한다) -> " git push [별명] [브랜치명] "
+
+      * 만약에 main이 아닌 master 로 분기가 되어있다면
+            -> git checkout -b main   해주면 master 에서 main 으로 바뀐다. >> 이 과정을 거쳐주고 push 해야한다
+
+      * master 로 진행할 거라면 git push origin master 이렇게 해줘도 된다.
+
+      * history 가 다르다고, 동기화 시켜야 한다고 오류가 뜰 수 있다, 그럴 때는 원격 저장소의 코드를 다운(pull) 받아서 내 코드와 합쳐야한다
+            -> git pull origin main --rebase   >>  (작성해주면 코드 다운로드 받고, 저장소와 히스토리를 동기화 시켜줄 수 있다)
+                  (history가 다르다고 하는 것은 아마 README.md 를 체크해줘서일 것이다. 이때 git pull origin main 해주면, "너 왜 관계 없는 파일도 다운받으려 하는 거야?" 라는 말이 뜬다
+                   -> 처음에 커밋메세지를 " init " 으로 작성해줬었는데, README.md 파일은 " initial commit " 으로 작성되어있기 때문이다  ->  애초에 파일의 뿌리가 다르다는 소리
+                   -> 이때는 이제 git pull origin main --rebase  해주면 된다)  ==> 지금은 오류 확인을 위해 깃허브에 new 레포지 만들때 README 체크해둔 것이다
+
+                   -> 이렇게 "--rebase" 까지 완료해주면, 왼쪽 파일에 README.md 파일이 새로 생긴다
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+git flow 순서 간단 정리
+
+      0. git branch   >   내 현재 브랜치명 확인  ( '-b' 를 쓰면 브랜치를 생성하면서 이동하는 명령어)
+            -> git checkout -b main / master   (브랜치 생성하면서 이동)
+            -> git branch 브랜치명   (브랜치 생성)
+            -> git checkout main / master   (브랜치 이동)
+
+      1. cd 폴더명  or  cd..(상위폴더)
+            ex) cd git/web
+
+      2. git init   >   (내 컴퓨터에 저장할 "로컬저장소"를 만드는 것)  >  (이제 내 컴퓨터 "로컬저장소" 에 저장한 코드를 "원격저장소" 로 저장하는 과정들이 앞으로 나온다)
+
+      3. git config --global user.email
+            git config --global user.name
+            (내 컴퓨터에 최초 1회만 해주면 된다  ->  했다면 생략)
+            -->  " git config --list "  이메일 / 닉네임 잘 입력했는지 재확인
+
+      4. git remote add '별명' '등록할 레포지토리 주소'   >   origin 은 내가 작성할 " 레포지토리별명 " 이기에 알아볼 수 있게끔 맘대로 작성 ok
+            ex) git remote add origin https://github.com/kimjunseok777/test1.git
+            ->  " git remote " 으로 내가 작성한 원격저장소 별명으로 잘 뜨는지 재확인
+      (로컬 저장소와 원격 저장소를 연결하는 것이다.)
+
+      5. git add .   /   git add 파일명
+
+      6. git commit -m 'init'  >  init 부분은 알아볼 수 있게끔 마음대로 작성 ok (커밋메세지) -> (커밋할 때 뜨는 메세지라는 뜻)
+            -> (로컬저장소에 히스토리를 저장하는 것)
+            -> com(함께)  mit(보내다)  ->  commit(함께 보내다) 라는 뜻이다
+
+      7. git push origin main
+            -> 동기화 시켜야 한다는 오류가 뜬다면  ->  git pull origin main --rebase
+            (오류가 뜨는 이유는 레포지토리를 만들 때 README 를 체크해주면 README.md 파일이 생기는데, 이게 커밋메세지가 'initial commit' 으로 혼자 다르기 때문)
+            -> (그래서 동기화 시켜주면 현재 내 vscode 에 있는 등록할 파일에 README.md 파일이 생기는 것이다)
+            -> 그 후에 다시  git push origin main  ->  깃허브에 등록 완료
+
+            ( git pull origin main -allow-unrelated)
+
+      8. git log   >   내가 적었던 커밋 내역을 확인할 수 있다
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+똑같은 파일에 내용을 업데이트 해주는 flow
+
+      1. cd 패키지이름
+
+      2. 일단 먼저 " git config --list " 와 " git remote " 를 입력해서 이메일, 닉네임이 잘 입력되어 있는지 확인, 처음에 작성한 원격저장소 별명 잘 뜨는지 확인한다
+
+      3. git add .  또는  git add 파일명
+
+      4. git commit -m '커밋메세지'
+
+      5. git push origin main

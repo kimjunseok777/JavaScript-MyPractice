@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        form
+        <div>
+            div
+            <p>
+                p
+            </p>
+        </div>
+    </form>
+    
+    <script>
+        const els = document.querySelectorAll('*')
+        // console.log(els)
+
+        els.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation()  //-> 이벤트 전파 방지 해주지 않으면, "버블링" 이 일어나서 "자식"이 "부모"한테까지 영향을 미친다
+                alert(el.tagName)
+            })
+        })
+    </script>
+</body>
+</html>

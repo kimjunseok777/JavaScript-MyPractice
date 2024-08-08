@@ -1,0 +1,81 @@
+header {
+  height: 60px;
+  background-color: red;
+}
+/*높이 60px에 배경 빨간색*/
+
+nav {
+  height: 40px;
+  display: none;
+  background-color: green;
+}
+/*높이 40px에 배경 초록색, 화면에 보이지 않음*/
+
+main {
+  display: flex;
+  height: 100vh;
+}
+/*자식이 수평 정렬, 높이는 현재 사용자가 보고 있는 브라우저의 높이*/
+
+main > aside {
+  height: 100%;
+  width: 480px;
+  background-color: yellow;
+}
+/*높이 부모요소 크기만큼, 너비는 480px에 배경 노란색*/
+
+main > section {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+/*
+    가로 길이 (display:flex 자식요소는 부모요소의 가로길이를 넘을 수 없기 때문에)
+    부모길이 - 480px = section의 너비값
+    안쪽 여백 16px, 자식 요소는 수평 정렬 but 본인의 크기를 넘으면 줄 바꿈을 한다,
+    자식 요소끼리의 간격은 16px
+*/
+
+section > article {
+  flex-basis: 280px;
+  border: 1px solid #000;
+}
+/*자식요소 가로 길이는 280px, 1px의 검정색 테두리가 4방면으로 있다*/
+
+footer {
+  height: 160px;
+  padding: 32px;
+  color: #fff;
+  background-color: #000;
+}
+
+/*0~767px 까지는 이라는 얘기*/
+@media screen and (max-width: 767px) {
+  main > aside {
+    display: none;
+  }
+
+  nav {
+    display: block;
+  }
+}
+
+/*768~1280px 까지는 이라는 얘기*/
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  main > aside {
+    width: 280px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*
+    media query는 사용자의 viewport를 확인하여
+    내가 원하는 CSS 속성으로 바꿔주는 문법
+*/

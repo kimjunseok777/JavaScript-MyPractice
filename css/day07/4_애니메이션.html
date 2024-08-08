@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            #arrow {
+                  position: absolute;
+                  top: 50%;
+                  right: 32px;
+                  transform: translateY(-50%);
+                  /*수직 가운데 정렬 해준 것*/
+                  font-size: 32px;
+                  animation: modifyArrow 1s ease-out infinite alternate;
+                  /*
+                        애니메이션명
+                        변화시간
+                        타이밍
+                        횟수
+                        방향
+                  */
+            }
+
+            /*주석이 없고 이름만으로 유추가 가능한 코드가 최상의 코드*/
+            @keyframes modifyArrow {
+                  100% {
+                        transform: translate(16px, -50%);
+                        /*덮어 씌워지기 때문에 -50%써준 것*/
+                  }
+            }
+      </style>
+</head>
+<body>
+      <div id="arrow">&gt;</div>
+</body>
+</html>

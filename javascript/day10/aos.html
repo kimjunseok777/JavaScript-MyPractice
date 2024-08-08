@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--
+        라이브러리 :
+            라이브러리는 "코드 도서관" 이라고 생각하면 된다, 다른 사람들이 만든 코드 중에서 내가 필요로하는 것을
+            선택하여 가지고와서 사용하는 것 (원하는 코드를 선택) , 오픈소스인 경우가 굉장히 많다 (저작권이 없는 코드)
+            (오픈소스 : 무상으로 공개된 소스코드)
+            ==> 코드에도 저작권이란 것이 존재하지만, 변수의 이름을 바꿔주거나 중간에 어떠한 요직이 하나 추가되는 것만으로도
+                    저작권이 깨진다, 그래서 사실 저작권이 의미가 있지는 않다
+
+        프레임워크 :
+            라이브러리가 "도구함" 이라면, 프레임워크는 "완성된 도구" 라고 생각하면 된다. 정해진 사용법에 한하여 코드를 작성
+            예를 들면 A라는 기능을 만들기 위해 편의성이 필요합니다 -> 보통 라이브러리를 사용하지만, 프레임워크에선 라이브러리 사용이 불가하다
+            프레임워크가 이미 함수고 뭐고 전부 다 만들어놨음
+            (빌트인객체가 엄청나게 많이 만들어져 있음 -> 프레임워크는 선택권이 없다 -> 이미 만들어져 있으니, 무조건 있는 거 써야한다)
+            ** 프레임워크는 사용법이 정해져있기 때문에 공부하는 방법은 강의를 듣는 것이 아닌, 가이드문서나 공식문서를 읽는 것이다
+            대표적으로 유명한 것 -> 스프링, 스프링부트 등등...
+
+        라이브러리 : 내가 필요로하는 친구들을, 내가 마음대로 쏙쏙 뽑아서 선택, 사용하는 것  ->  ex) jQuery(제이쿼리)
+        프레임워크 : 이미 완성된 도구라서 사용법이 정해져있는 것
+
+        React는 "프레임워크"이면서 "라이브러리"이기도 하다  -> 기능을 제공하기는 하지만, 기능이 없는 것들은 너 마음대로 갖고와서 사용하라는 식
+
+        라이브러리 예시 :
+            (그냥 구글링에 해당 라이브러리를 검색하면 된다 -> Animation Library, Scroll Library 등등...)
+            https://michalsnik.github.io/aos
+
+        대표적으로 이런 framer motion 같은 라이브러리도 있다
+        https://www.framer.com/motion/
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .item {
+            margin: 20rem auto;
+            width: 30%;
+            height: 50vh;
+            background-color: aquamarine;
+            font-size: 3rem;
+            font-weight: bold;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        라이브러리를 사용하기 위한 가정 최적의 방법은 무엇일까요?
+        1. 공식 문서를 면밀히 살펴본다 -> 정답이다
+        2. 검색해서 다른 사람들은 어떻게 사용했는지 분석하고 터득한다 -> 이것은 최신글 (6개월 이내) 을 보는 것이 좋다
+    -->
+    <div class="item" data-aos="fade-up">fade-up</div>
+    <div class="item" data-aos="flip-left">flip-left</div>
+    <div class="item" data-aos="zoom-in" data-aos-offset="400" data-aos-once="false">zoom-in</div>
+    <!--  여기서 태그 옆에는 보통 id 나 class 가 온 후에 이름이 적히는데, "data-aos" 는 무엇인지 잘 모르겠다 -->
+    <!-- <div class="item" id="item-list"> 이런 게 익숙한데, data-aos=" " 이거는 잘 모르겠다 -->
+
+    <!-- 이렇게 AOS init은 마지막에 있어야한다 -> body 끝에 적어줌 -->
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

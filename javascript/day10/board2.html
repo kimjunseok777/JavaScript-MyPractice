@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>board2</title>
+  <script defer src="./js/board2.js"></script>
+  <style>
+    .board-list {
+      width: 920px;
+      margin: 0 auto;
+    }
+
+    .board-list > article {
+      background-color: #000;
+      color: #fff;
+      margin: 16px;
+    }
+
+    .board-list > article > div {
+      border: 1px solid #fff;
+    }
+    /*h3,div*/
+    .flex-center{ 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- board form -->
+    <div>
+      <p>제목: <input class="title"/></p>
+      <label>내용</label>
+      <textarea class="content"></textarea>
+      <button class="write-btn">작성</button>
+    </div>
+    <!-- board list -->  
+    <div class="board-list">
+      <article class="board-card">
+          <h3 class="flex-center">exmple-title
+            <button>삭제</button>
+          </h3>
+          <div class="flex-center">
+            example-content
+          </div>
+      </article>
+    </div>
+    <!-- board detail -->
+    <div class="board-detail">
+      <button>수정</button>
+      <p>example-title</p>
+      <div>exmaple-content</div>
+    </div>
+  </div>
+</body>
+</html>

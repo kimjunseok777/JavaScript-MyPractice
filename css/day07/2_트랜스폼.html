@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="../day04/css/reset.css">
+      <style>
+            body {
+                  height: 100vh;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: column;
+                  /*수평이 아닌 수직 정렬 하겠다는 의미*/
+            }
+            div {
+                  width: 300px;
+                  height: 200px;
+                  border: 1px solid #000;
+                  transition: transform 0.5s;
+                  /*카드 뒤집기 구동*/
+            }
+            #scale:hover {
+                  border: 1px dashed #f00;
+                  transform: scale(1.5); /*기존보다 1.5배 커진다*/
+                  /*scale은 전 방향으로 사이즈 키울 때 사용
+                  --> 그냥 위드나 헤이트 값을 늘려주면 왼쪽 상단을 기준으로 커진다*/
+                  transform: scale(-1);
+                  /*sclae(-1)을 해주면 좌,우,상,하 가 반전이 된다 (x충, y축)*/
+                  transform: scaleX(-1);
+                  /*이러면 X축만 반전을 시킨다*/
+                  transform: scaleY(-1);
+                  /*Y축만 반전을 시킨다*/
+                  /*==> 카드 뒤집는 것 처럼 "flip" 효과 넣을 때 자주 사용한다*/
+            }
+
+            #translate:hover {
+                  transform: translate(300px, 200px);
+                  /* x, y를 모두 주면 대각선 이동*/
+                  transform: translateX(10%);
+                  /* %는 자기 요소 크기의 비율로 이동이 가능 */
+            }
+
+            #rotate:hover {
+                  /* transform: rotate(90deg); */
+                  transform: rotateY(90deg);
+                  /*이것도 flip효과를 줄 수 있다*/
+
+                  transform: perspective(150px) rotateY(180deg);
+            }
+      </style>
+</head>
+
+<body>
+      <div id="scale">좌우</div>
+      <div id="translate"></div>
+      <div id="rotate"></div>
+</body>
+</html>

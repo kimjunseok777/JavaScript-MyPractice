@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        color / 크기에 대해서 알아보자
+        
+        CSS -"color"를 표기하는 방법은 크게 3가지가 있다
+        1. 색상이름
+            >red, black, white...
+
+
+        2.RGB 값
+         > rgb(0~255)
+         rgb (255, 0, 0)-빨간색
+         rgb (0, 0, 0)-검정색
+         rgb (255, 255, 255)-하얀색
+         rgb (0, 255, 0)-녹색
+         --r: 레드가 몇인지 / g: 그린이 몇인지 / b: 블루가 몇인지
+
+         rgba(0~255, 0~255, 0~255, 0~1) > 마지막 0~1은 색상의 투명도를 나타낸다
+         >알쥐비알파
+         ex) p {
+            color: rgb(255, 0, 0)
+         }
+
+
+         3. 16진수 표기법
+         (00~FF)
+         "#6자리"
+                            red / green / blue  /  alpha(투명도 조율)
+         ex) color: #00 /    00    /   00   /   00
+         ==> color: #ff0000 은 레드이다 (ff 면 255라는 얘기이다)
+
+         *주의사항
+            단순한 검정색에 투명도 - rgba
+            그러나 16진수의 투명도 - 16진수 끝에 추가로 값을 더함
+
+        -------------------------------------------------------------------------------
+
+        CSS - "크기"를 표기하는 방법
+            *px :
+            절대크기, 사용자 화면에 따라 변하지 않고 300px로 지정해 놓으면 계속 300px이다
+            가장 많이 쓰이는 크기 단위
+            단점 - 모바일이나 사용자 화면 크기에 따라 동적으로 변화해야하는 경우 대응이 어렵다
+
+            
+            *% :
+            상위 요소(부모) 기준 비율
+            (부모 요소 크기의 %인것 / 부모가 100px인데 30% 이면 30px이다)
+            장점 - 모바일 화면이든, 웹 화면이든 %로 차지하기에 변화 좋다
+            모바일 부모 요소의 크기를 줄여주면 자동으로 줄어들어주기 때문에 좋다
+
+
+            rem :
+            DOM요소에 최상위 요소인 html의 font-size의 배율
+            1rem = x1
+            2rem = x2
+            0.5rem = x0.5
+            ex) html {
+                font-size: 16px **(16이 디폴트 값이다)**
+            }
+            div {
+                width: 2rem ==> 32px 이 된다
+            }
+            html의 폰트 사이즈만 바꿔주면 되기 때문에 반응형에 굉장히 유연하게 대처 가능
+
+
+            em :
+            바로 부모 요소의 font-size의 배율
+            <html> // font-size: 18px
+            <부모> // font-size: 32px
+                <자식> // font-size: 2em = 64px
+                             // font-size: 2rem = 32px (18x2)
+                </자식>
+            </부모>
+            장점 - 모든 요소가 최상위 요소인 html에 의존적인 rem과 달리 개별적인 부모 요소에
+            의존하므로 보다 유연하게 대처할 수 있다
+            *==> "rem"은 html 변경되면 다 바뀜, 그러나 "em"은 부모 요소에 따라 변경*
+            ==> rem, em 너무 햇갈린다면 px, % 만 기억하고 있어도 문제 없다
+
+
+            *vw, vh : {viewport width / viewport height}
+            (dvw, dvh, svw, svh, lvw, lvh)
+            v가 의미하는 것은 viewport이다
+            viewport - 사용자가 현재 보고있는 화면의 크기
+            ==> 데스크탑 > 데스크탑의 해상도에 맞는 크기 / 테블릿 > 테블릿에 맞는 크기
+            30vh > 세로로 사용자가 보고 있는 화면의 30%
+            100vh > 세로로 화면 가득 채움 (지금 현재 사용자가 보고 있는 화면을 세로로 가득 채움)
+            300vh > 세로 화면 가득 채우는 기준으로 x3 이다
+            100vw > 가로로 가득 채움
+
+            ==> vw는 왼쪽에 창 스크롤 부분은 계산하지 않기 때문에 스크롤이 없는 화면을 가득
+            채우기 위해 사용한다 / 아니면 그냥 안쓴다 (세로로 길이가 길어서 창 스크롤이 있는 경우)
+
+            ==> 세로로 길어져서 창 스크롤이 생기면  그 스크롤 너비도 값으로 쳐버린다(가로 스크롤이 생김)
+            (사실 100vw는 잘 안쓴다 > div나 p 처럼(블럭요소) 가로 가득 채우는 거 많기 때문)
+
+
+            dvh (dynamic)
+            ======> 모바일화면에서는 주소창이 있다 없다 할 수도 있으니까 100vh가 짤릴 수도 있음 - 그때 대처방안
+            ======> 모바일 화면에서 주소 표시줄이나 브라우저에 따라
+                                100vh가 달라질 수 있음
+                                주소 표시줄 표시 여부에 따라 단위가 변경
+
+            svh (주소 표시줄 안 보일 때 높이)
+            lvh (주소 표시줄 보일 때의 높이)
+            ==> 모바일 화면에서 100vh가 짤림 현상이 일어났을 때 대처방안 정도 (다이나믹, 스몰, 라지)
+
+
+            *calc :
+            계산 기능
+            ex) height: calc(100vh - 80px)
+            ex) width: calc(100vw - 120px)
+            *띄어쓰기 꼭 지켜야함
+
+            "*"친 것들은 필수로 알고 있어야함
+    -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- 100vw로 인한 가로스크롤 생성! -->
+    <div style="width: 100vw; height: 300vh; font-size: 16px;">
+        <p id="px">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, vel. Numquam vitae,
+            consequuntur voluptas maiores hic pariatur deserunt dicta ex, adipisci at libero omnis,
+            cupiditate repellendus dignissimos nam id aperiam.
+        </p>
+
+        <hr/>
+
+        <p id="rem">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, vel. Numquam vitae,
+            consequuntur voluptas maiores hic pariatur deserunt dicta ex, adipisci at libero omnis,
+            cupiditate repellendus dignissimos nam id aperiam.
+        </p>
+
+        <hr/>
+        
+        <p id="em">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, vel. Numquam vitae,
+            consequuntur voluptas maiores hic pariatur deserunt dicta ex, adipisci at libero omnis,
+            cupiditate repellendus dignissimos nam id aperiam.
+        </p>
+    </div>
+    
+</body>
+</html>

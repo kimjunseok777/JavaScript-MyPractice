@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--cdn방식-->
+    <!-- 구글폰트 > 노토산스 > Get embed code > link체크 > Copy code > 붙여넣기(cdn) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+
+      /*font-face 방식*/
+      @font-face {
+            font-family: Noto;
+            src: url(./font/NotoSansKR-VariableFont_wght.ttf);
+      }
+      body {
+            font-family: Noto;
+      }
+      /*
+            ttf > IE9버전부터 부분적 지원, 단점은 압축이 안돼있어서 용량이 크다
+            eot > IE(인터넷 익스플로어)를 지원하는 폰트
+            otf > 운영체제에 직접 다운로드 폴더, 용량이 크다
+            woff > 가장 용량이 작고 빠름, 옛 버전의 브라우저 지원이 되지 않습니다 (가장 최신)
+
+            ==> 이것을 모두 기억하라는 것이 아니라
+            만약에 프로젝트의 특성 상 구버전 브라우저를 지원해야한다면
+            당시 폰트가 적용이 안되는 이슈가 있으면 확장자가 지원하고 있는지 고려
+      */
+      
+
+
+      /* p요소 중에 class가 align인 요소 선택 */
+      p.align {
+            text-align: justify; /*저스티파이는 양쪽 끝에 폰트가 다 붙음*/
+      }
+      p.font {
+            font-size: 32px;
+            font-weight: 700; /*폰트 두께 - 100~900 or ~bold*/
+            
+            /*구글 사이트에서 폰트패밀리 적혀있는 거 복붙한 거(cdn)*/
+            font-family: "Noto Sans KR", sans-serif;
+            /*class p 를 "cdn" 방법을 통해 노토산스로 바꿔준 것*/
+
+            /*
+                  **cdn** : <link/>로 외부 파일을 연결해서 쓰는 방법 - 단순한 웹폰트나 구글폰트 같이 서버가
+                  안정적인 것을 쓸때 이거 좋음
+                  >용량도 작고 속도도 빠르다. 단 서버의 연결 상태에 따라 의존적이다
+                  >글자 크기가 작은 것들일 때 많이 쓴다***
+
+                  1. cdn 형태를 쓰면 빠른 속도의 페이지 로딩이 가능
+                  (font를 파일로 전송하지 않기 때문에 용량이 작다)
+
+                  2. 중복 다운로드 방지
+                  
+                  3. 브라우저에 저장이 됩니다. 기존 사용자의 경우 재요청 X
+
+                  ------------------------------------------------------------------------------
+
+                  *보통은 font-face보다 ** cdn **을 많이 사용한다
+                  *font-face는 폰트의 종류가 많을 때, 회사 폰트를 사용할 때
+                        다양한 브라우저의 호환성을 지켜야할 때
+
+                  ------------------------------------------------------------------------------
+
+                  **@font-face** : down load 받아서 쓰는 방법 - 서버가 직접적으로 있다고 하면 이거 좋음
+                  >폰트 파일의 형식을 서버에서 직접 저장할 수 있기 때문에
+                  어떠한 브라우저에서도 지원 가능
+
+                  // font-display라는 속성과 연관
+                  // swap 현상 ==> 폰트 대체해주는 현상
+
+                  font-display: swap (*fout형태를 띄고 있다)
+                  >기본값, 대체폰트에서 > 설정한 폰트로 바뀜 (못생긴 폰트에서 > 설정한 이쁜 폰트로 변경)
+
+                  font-display: block (*foit)
+                  >보여주지 않다가, 폰트 다운로드가 완료되면 폰트를 보여준다
+                  (다운 전까지 아예 안보이다가 > 설정한 이쁜 폰트로 변경)
+
+                  foit > 웹 폰트를 불러오는 과정에서 폰트를 불러오는 웹 브라우저가 텍스트를 보여주지
+                              않는 현상 (cdn으로 폰트를 불러오는데 오래걸리면, 다운 다 되기 전까지는
+                                                사용자가 그 폰트를 볼 수 없음)
+                        //텍스트의 노출이 중요하지 않을 때 쓰임
+
+                  fout > 반대로 웹 폰트를 불러오는 과정에서 폰트를 불러오는 동안
+                              대체 폰트를 보여주는 현상 (기본 폰트였다가 갑자기 이쁜 폰트로 바뀜 현상)
+                        //텍스트를 사용자가 빨리 보는 것이 중요할 때 쓰임
+
+                  ==> 대체할 것인가 or 다 다운로드 받은 뒤 보여줄 것인가를 정하면 됨 (foit or fout)
+            */
+      }
+      
+      #overflow {
+            width: 300px;
+            height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis; /*ellipsis-'생략'이라는 뜻*/
+            /*반드시 overflow 히든 이어야 하고, white-space가 nowrap이어야 한다*/
+            white-space: nowrap;
+      }
+
+      /*
+            과제 - MDN의 CSS를 읽어오는 것
+            https://developer.mozilla.org/ko/docs/Web/CSS
+
+            fonts
+            color
+            background
+            box model
+            display
+            images
+            positioned layout
+            * grid - 여러움
+            * flexible box layout - 여러움
+
+            배우고 읽어오기
+      */
+    </style>
+</head>
+
+<body>
+      <p class="align">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae aliquid expedita,
+            assumenda qui voluptatum eos repellendus natus. Modi architecto tempora quae vero
+            non neque consequuntur,quisquam repellendus est id laborum.
+      </p>
+
+      <hr/>
+
+      <p class="font">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae aliquid expedita,
+            assumenda qui voluptatum eos repellendus natus. Modi architecto tempora quae vero
+            non neque consequuntur,quisquam repellendus est id laborum.
+      </p>
+
+      <hr/>
+
+      <!--p태그와 div태그는 처음부터 끝까지 가로 길이를 차지
+      높이는? 안에 있는 내용물 만큼 길어진다.
+      따라서 p태그를 넘는 텍스트가 있을 수가 없습니다.
+
+      근데 만약에 p태그에 크기를 준다면?
+      글자가 p태드를 넘어서 표기됩니다.-->
+      <p id="overflow">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae aliquid expedita,
+            assumenda qui voluptatum eos repellendus natus. Modi architecto tempora quae vero
+            non neque consequuntur,quisquam repellendus est id laborum.
+      </p>
+</body>
+</html>

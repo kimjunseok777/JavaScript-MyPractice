@@ -1,0 +1,51 @@
+input::placeholder {
+    text-align: center;
+    color: red;
+}
+/*플레이스 홀더를 지정한 것이기에 '텍스트를 입력해주세요'
+이것만 빨간색이고, 텍스트를 적으면 빨간색이 아니라 기본 검정색이다*/
+
+input:focus {
+    background-color: black;
+    color: white;
+}
+button:hover {
+    opacity: 0.7;
+}
+
+button:disabled {
+    color: lightgreen;
+}
+
+a:link {
+    color: aqua;
+}
+a:visited {
+    color: red;
+}
+
+/*스크롤바 없애기*/
+body::-webkit-scrollbar {
+    display: none;
+}
+/*스크롤바 없애기*/
+
+ul {
+    list-style: none;
+    display: flex;
+    height: 300vh;
+}
+ul li:first-of-type {
+    color: blue;
+}
+ul li:first-of-type::after {
+    content: "|";
+    margin: 0 16px;
+}
+ul li:nth-of-type(2) {
+    color: violet;
+}
+
+/*
+과제!!!
+아무 사이트 html 구조 잡아보기!*/

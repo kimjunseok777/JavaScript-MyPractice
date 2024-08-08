@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>0</div>
+    <script>
+        setTimeout(() => {
+            alert('5초가 지났습니다')
+            // 자바스크립트로 페이지 이동 -> location, history
+
+            // location : 브라우저가 가지고 있는 URL을 제어하는 객체
+            window.location.href = '/javascript/day10/board.html'  //-->  이렇게 주소 적으면 된다
+            // window 라고 쓰는 이유는 자바스크립트에 대한 객체가 아니기 때문, 페이지의 URL을 가지고 있는 것은 자바스크립트가 아닌 브라우저이기 때문
+            //--> 페이지 상단에 주소창 같은 것은 우리들이 구현한 것이 아니다
+
+            // history : 브라우저가 가지고 있는 URL 기록  -->  ex) 뒤로가기와 앞으로가기
+            // history.go(n)  -->  뒤로가기, 앞으로가기
+            // history.go(-1)  -->  1번 뒤로가기
+            // history.go(2)  -->  2번 앞으로가기
+            // history.back(), history.forward()  -->  한칸만 뒤로 / 앞으로 가기
+
+            // location 은 URL을 제어하는 것, history는 지금까지 브라우저가 거쳐온 히스토리(URL)를 파악할 수 있는 것
+
+            // URL ( uniform / universal resource locator : 인터넷상의 파일 주소 )
+            // href ( Hypertext Reference : 하이퍼텍스트 참조 ) ( "참조문헌" 으로 가는 링크를 달아놓는 것 )
+            // src ( source의 약자 : 자료 )
+            // alt ( alternate text의 약자 : 대체 텍스트 )
+
+        }, 5000)  //--> 1000 밀리세컨드가 1초  (1ms === 1/1000 초 , 0.001초) , (1000ms === 1초)
+        // 5초 후에 실행 ( setTimeout )
+
+
+        //-----------------------------------------------------------------------------------------------------
+    
+
+        const $div = document.querySelector('div')  //-> 태그선택자 사용한것 -> querySelector 이기에 가장 처음 발견한 div 태그 하나
+        setInterval(() => {
+            // $div.innerText += 1  //--> 자료 타입이 스트링이기 때문에,  문자열 0 에 숫자를 더하기에 5초 후는 "01111" 이런 식으로 된다
+            //--> 이것 ($div.innerText는 문자열 0) 을 string 에서 number 로 "형변환" 시켜줘야한다
+
+            // parseInt 함수 : 문자열을 "파싱" 하여, 문자열에 포함된 숫자를 찾아서 number로 "형변환" 을 시켜준다.
+            // parseInt 함수 : string 에 포함되어 있는 숫자만을 number 로 반환해준다
+
+            // 파싱 (parsing) : 내가 원하는 정보만 추출해서, 원할 때 불러올 수 있게 하는 것
+            // 형변환 : 하나의 데이터형 속성을 다른 속성의 데이터형으로 변환하는 것
+            // Int : '정수' 라는 영단어인 'integer' 의 약자  -->  즉, int 형으로 표현할 수 있는 수는 49, 167, 0, -38 등의 정수
+            // 정수 : 소수점 없는 수
+            // 실수 : 소수점 있는 수
+            // parseInt : str -> num , 실수 -> 정수 등으로 바꿔주는 기능이 있다
+            
+            // Number( ... ) 이런 식으로 Number로 감싸줘도 숫자가 된다
+            // 반대로 숫자를 문자열로 바꾸는 것은 toString 같은 것이 있다  -->  ** 구글링으로 toString() 함수 같은 것들 공부해보기 **
+
+            const count = parseInt($div.innerText) //-> string인 숫자를 number로 바꿔주는 역할 반복
+            $div.innerText = count + 1 //-> 1더해주는 역할 반복 (위의 역할이 없으면 문자열에 숫자를 더하는 상황이 돼버린다)
+        }, 1000);
+        // 1초 마다 실행 ( setInterval )
+
+        // setInterval 과 setTimeout 이 반환하는 값은 해당 비동기 실행의 고유한 값이므로
+        // 초기화 할 때는 해당 고유 값을 통해 삭제해야한다
+
+        // setTimeout(몇초 후에) , setInterval(몇초 마다)
+
+
+        //-----------------------------------------------------------------------------------------------------
+
+
+        /*
+            과제 : 타이머 만들기
+            시작을 누르면 1초마다 숫자가 1씩 증가합니다
+
+            중지 버튼을 누르면 멈춥니다
+            중지 상태에서 시작버튼을 누르면 다시 시작됩니다
+
+            리셋 버튼을 누르면 0으로 돌아갑니다
+            리셋은 --> clearInterval() 을 생각하면 된다  -->  리셋을 하면 "초기화" 가 아닌 "동작취소" 가 된다
+
+            버튼 : 시작버튼 , 중지버튼 , 리셋버튼
+
+            ** 심화버전 : 시, 분, 초로 나누기
+        */
+
+        /*
+            리셋 힌트 :
+            const interval 로 새로 상수로 담아줬음 --> 중지나 초기화 버튼 눌렀을 때, setInterval이 반환하는 고유의 값을 가져와야하기 때문
+
+            const interval = setInterval(() => {
+                const count = parseInt($div.innerText)
+                $div.innerText = count + 1
+            }, 1000);
+
+            clearInterval(interval)  이런식으로 setInterval 이 반환하는 고유한 값을 가지고 와서 초기화 시켜줘야 함
+
+            const interval = setInterval(() => {})
+            --> 코드를 어떻게 이렇게 쓸 수 있는 건지 잘 이해가 안된다
+            --> 내가 이해를 못한 것인가? 아니면 setInterval 만 이렇게 쓰는 특별한 이유가 있는 것인가?
+        */
+
+        
+    </script>
+</body>
+</html>

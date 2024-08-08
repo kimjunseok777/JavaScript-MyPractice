@@ -1,0 +1,25 @@
+ul {
+      list-style: none;
+} 
+ul a {
+      text-decoration: none;
+}
+
+
+ul > a {
+      color: deeppink;
+}
+ul > li > a {
+      color: cornflowerblue;
+}
+ul > li > p > a {
+      color: darkviolet;
+}
+ul li a {
+      color: green;
+}
+/* 다음 , 구글 폰트 둘다 바뀐 것이 맞지만 우선 선택자에 밀려서 
+      다음 폰트만 초록색으로 변한 것이다*/
+/* 자식 자손은 선택자의 길이가 길 수록 우선 순위가 높다 */
+
+/* 스타일은 코드들 드래그하고 ctrl + / 하면 주석이 된다 */

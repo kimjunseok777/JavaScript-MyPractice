@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script defer src="./js/dom2.js"></script>
+    <style>
+      .content {
+        width: 1024px;
+      }
+
+      .disp {
+        height: 200px;
+        border: 1px solid black;
+      }
+
+      .tab_host {
+        display: flex;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .tab:hover {
+        cursor: pointer;
+      }
+
+      .tab {
+        width: 200px;
+        border: 1px solid #ededed;
+      }
+
+      .tab_on {
+        color: white;
+        background-color: black;
+      }
+
+      #list {
+        border: 1px solid #ededed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="disp" id="display">
+        <form>
+          <p>1.페이지가 로딩 될 때 이곳의 글씨를 변경하시오.</p>
+        </form>
+      </div>
+
+      <p>2.탭을 선택하면 선택한 탭의 배경과 글자의색이 바뀌도록 하시오</p>
+      <div class="tab_host">
+        <div class="tab">탭1</div>
+        <div class="tab">탭2</div>
+        <div class="tab">탭3</div>
+        <div class="tab">탭4</div>
+        <div class="tab">탭5</div>
+      </div>
+
+      <p>
+        3. 위의 탭 클릭시 아래의 컨텐츠중 탭과 숫자가 같은 것만 보이게 하시오.
+      </p>
+      <div class="tab_body">
+        <div class="block">탭1 컨텐츠</div>
+        <div class="block">탭3 컨텐츠</div>
+        <div class="block">탭2 컨텐츠</div>
+        <div class="block">탭5 컨텐츠</div>
+        <div class="block">탭4 컨텐츠</div>
+      </div>
+    </div>
+  </body>
+</html>

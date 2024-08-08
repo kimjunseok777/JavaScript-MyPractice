@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+            }
+            header {
+                  height: 60px;
+                  background-color: aqua;
+                  display: flex;
+                  justify-content: space-between;
+                  /*요소의 양 끝 간격을 맞춤*/
+
+                  /* justify-content: space-evenly; */
+                  /*양끝과 요소들 모두의 간격을 맞춤*/
+
+                  /* justify-content: space-around; */
+                  /*요소들끼리 좌우 동일 간격을 맞춤*/
+
+                  align-items: center;
+                  /*수직을 가운데로 정렬한다*/
+
+                  /* align-items: baseline; */
+                  /*상단을 기준으로*/
+
+                  /* align-items: flex-end; */
+                  /*끝을 기준으로*/
+
+                  padding: 0 32px;
+                  /*부모요소 안에 있는 컨텐츠들이 움직임
+                  --> border-box를 주지 않으면 부모요소의 크기가 달라지니 주의!*/
+            }
+            ul {
+                  list-style: none;
+                  display: flex;
+                  column-gap: 8px;
+                  /*column-gap? grid-gap? 여러 종류의 gap이 있는 거 같은데 잘 모르겠다 - 질문!!!*/
+
+
+            }
+            main {
+                  display: flex;
+                  justify-content: center;
+                  /*수평의 가운데 정렬*/
+                  align-items: center;
+                  /*수직의 가운데 정렬*/
+                  height: calc(100vh - 60px - 180px);
+            }
+            
+            main > div {
+                  display: flex;
+            }
+            main > div > section {
+                  width: 120px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 36px;
+                  font-weight: bold;
+            }
+            main > div > form {
+                  width: 260px;
+            }
+            main > div > form > .common-form-input {
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 8px 0;
+            }
+            .common-form-input > input {
+                  width: 180px;
+            }
+            main > div > form > button {
+                  width: 100%;
+                  height: 60px;
+            }
+            /*main > div > "form" 은 flex가 아니기에 flex-grow가 적용되지 않는다
+            그래서 넓혀주려먼 width: 100%을 써야한다*/
+
+            input::placeholder {
+                  text-align: center;
+            }
+
+            /* "높이"는 함부로 정해주면 위험하다
+            나중에 유지보수하거나 수정할 때 많이 귀찮아 질 수 있다*/
+
+            footer {
+                  height: 180px;
+                  background-color: #eee;
+            }
+      </style>
+</head>
+
+<body>
+      <header id="login-header">
+            <section>LOGO</section>
+            <ul>
+                  <li>로그인</li>
+                  <li>|</li>
+                  <li>회원가입</li>
+            </ul>
+      </header>
+
+      <main>
+            <div>
+                  <section>LOGO</section>
+                  <form>
+                        <p class="common-form-input">
+                              <label for="email">이메일</label>
+                              <input type="text" placeholder="이메일을 입력해주세요" name="id">
+                        </p>
+                        <p class="common-form-input">
+                              <label for="password">비밀번호</label>
+                              <input type="password" placeholder="비밀번호를 입력해주세요" name="pw">
+                        </p>
+                        <button type="submit">로그인</button>
+                  </form>
+            </div>
+      </main>
+      
+      <footer></footer>
+</body>
+</html>

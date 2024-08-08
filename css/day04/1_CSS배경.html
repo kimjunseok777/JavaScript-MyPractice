@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        color
+        image
+        size (cover, contain)
+        >cover
+            페이지에 가득차게, 가득 찬 배경
+            but "이미지가 잘릴 수 있음"
+
+        >contain
+            원본 비율에 맞게 늘림, 사진 전체가 보임
+            but "여백이 생길 수 있음"
+
+            ex>
+            background-size: cover 또는 contain
+    -->
+    <style>
+      #circle {
+            background-color: aquamarine;
+            width: 48px;
+            /* px 단위는 4px 단위로 올려주는 것이 브라우저가 더 빨리 읽는다 */
+            height: 48px;
+            border-radius: 50%;
+            /*radius 값을 50%이상으로 가면 둥그란 정도가 절만을 넘어가기 때문에 무조건 동그래짐*/
+            display: flex;
+            /* display-flex는 자식요소를 부모요소의 크기에 맞춰 강제로 늘리려는 속성이 있다 */
+            justify-content: center;
+            align-items: flex-end;
+            /* start, center, end */
+            padding-bottom: 4px;
+      }
+
+      #circle > img {
+            width: 16px;
+            height: 16px;
+            aspect-ratio: 1/1; /*요소의 종횡비 ex) 4:3 3:4 16:9, display flex일 때는적용x */
+      }
+
+      body {
+            background-color: rgba(0, 0, 0, 0.6);
+             background-image: url(./img.jpg);
+             /* background-size: cover; */
+             background-size: contain;
+             background-repeat: no-repeat;
+             height: 300vh;
+             background-attachment: fixed;
+             /*배경화면 고정*/
+             margin: 0px;
+      }
+
+      .modal-background {
+            background-color: rgba(0, 0, 0, 0.6);
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+      }
+
+    </style>
+</head>
+
+<body>
+      
+      <div class="modal-background"></div>
+      <div id="circle">
+            <img src="../../html/day02/assets/img/다운로드.jpg" alt="사자이미지">
+      </div>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer src="./js/script.js"></script>
+    <!-- defer를 사용하면 </html> 을 만나야만 js를 실행한다 -->
+    <!-- 이렇게 defer 하게 되면 파일을 전부 다 읽었을 때 실행한다, 그래서 위에 script를 적어줘도 됨 -->
+    <!-- 그냥 밑으로 내리는 거 불편해해서 나온 기능 -->
+
+
+    <!-- <script async src="./js/script1.js"></script>
+    <script async src="./js/script2.js"></script>
+    <script async src="./js/script3.js"></script>
+    <script async src="./js/script4.js"></script>
+    이렇게 async 해주면 순서대로 실행한다
+    async 사용해주지 않으면 1,2,3,4 순서대로 실행되지 않고, 동시에 실행해버린다 -> 그럼 에러, 충돌이 난다
+    async 는 나중에 비동기할 때 배운다, 그냥 눈으로만 봐라 -- js파일을 순서대로 실행시켜주는 것  -->
+
+
+    <script>
+        window.onload = () => {
+            // 사용자에게 화면이 전부 다 로드 되고나서 실행해야 하는 함수를 적으면 된다 (html이 전부 그려지고 나서 실행하는 함수)
+            // window.onload 는 밑에 있는 script 를 상단으로 올리기 위해 사용하는 것이 목적이 아니다 -> 그런 목적으로 쓰면 절대 안된다
+            // 페이지가 로드 되었을 때 실행해야하는 함수를 정의하는 것  --> 예를 들면 alert 같은 알림창 같은 것들을 onload에 작성
+        }
+    </script>
+</head>
+<body>
+    <div id="id">안녕하세요</div>
+    <script>
+        // 내부 자바스크립트 작성 시에는 요소 밑으로 내려서 작성 (자바스크립트는 위에서 아래로 진행이 되기 때문)
+        // 해당요소 위에 작성하면 코드는 위에서부터 아래로 읽기 때문에 null 이 뜬다
+        const $div = document.querySelector('#id')  //  css 선택자로 가져오기 때문에 . 이나 # 붙여줘야한다 (NodeList 반환)
+        const $div_2 = document.getElementById('id')  //  id로 가져온다 명시되어있기 때문에 # 붙일필요 없다 (HTMLCollection 반환)
+        console.log($div, $div_2)
+    </script>
+</body>
+</html>

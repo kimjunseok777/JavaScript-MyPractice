@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*실제로 프로젝트를 들어가게되면, 나만의 reset css를 가지고 있으면 좋다
+(나의 코딩 스타일에 맞춰 or 회사에 맞춰)*/
+
+
+/*header*/
+header {
+    height: 60px;
+    background-color: rgb(255, 111, 111);
+}
+
+
+/*banner*/
+#main-banner-wrapper {
+    height: 360px;
+    background-color: rgb(255, 255, 137);
+}
+#main-banner-container {
+    margin: 0 auto; /*가운데 정렬*/
+    background-color: rgb(106, 255, 106);
+    width: 1000px; /*배너 이미지의 크기*/
+    height: 100%; /*360px과 같은 말*/
+    display: flex; /*자식 요소들을 수평 정렬 시킴*/
+    overflow: hidden;
+}
+#main-banner-container > .main-banner-list {
+    /* width: 1080px; */
+    flex-basis: 1080px; /*flex속성 자식들에게 주는것, 정렬된 요소의 크기를 준다 -> width값이다*/
+    height: 100%; /*360px과 같은 말*/
+    background-color: rgb(255, 223, 164);
+    flex-shrink: 0;
+    /*flex-shrink를 주지 않고 display: flex만 주게 된다면 부모모다 크기가 더 커질 수 없기
+    때문에 자식 요소의 크기가 균등하게 줄어든다  --> shrink 주지 않으면 1000px 나누기 4가 된다*/
+    /*
+        display: flex는 자식 요소가 부모요소의 크기를 넘을 수 없지만 shrink 속성을 이용해서
+        축소 비율을 0으로 만들어 부모 요소 크기를 넘길 수 있다
+    */
+}
+/* ^배너 만들 때 많이 사용하는 코드이다*/
+
+
+/*main*/
+#main-container {
+    display: flex;
+    /* height: 100vh; */
+    /*아래 요소들을 통해 높이가 정해졌기 때문에 높이는 주석처리 해준 것*/
+}
+#main-container > aside {
+    flex-basis: 320px; /*flex 속성에 주는 width값이다 (flex-basis)*/
+    background-color: rgb(70, 163, 255);
+}
+#main-container > section {
+    flex-grow: 1;
+    /*부모의 길이인 320px을 제외하고 나머지를 다 차지하게 됨(flex-grow: 1)*/
+    /*만약 부모 길이가 width값이 아니라 flex-grow3이면 부모가 4/3, 자식이 4/1차지하게 됨*/
+
+    /*--> flex-grow 잘 모르겠다 >> 질문하기!!!*/
+
+    /*
+        flex-grow는 부모 요소가 flex일 때
+        자식 요소의 grow의 합을 구한 후
+        비율에 맞게 크기를 분삽합니다.
+        
+        만약 합이 1 이라면 전체 부모요소의 크기를
+        차지
+
+        ==> **grow 합에 대한 비율이 중요하다!**
+    */
+
+    flex: 1;
+    /*
+    flex: 1 320px 1
+        (grow / basis / shrink)
+    */
+    background-color: rgb(255, 175, 78);
+    display: flex;
+    flex-wrap: wrap;
+    /*부모를 넘어서면 줄바꿈을 하겠다는 것*/
+    gap: 10px;
+    justify-content: center;
+}
+
+#main-container > section > .main-product-item {
+    flex-basis: 330px;  /*단 배열을 수정*/
+    /*flex basis가 적용되려면 부모 요소에 display flex가 있어야함*/
+    flex-basis: 30%; /*퍼센트로 값을 줘서 요소를 같이 줄일 수 있음*/
+    height: 260px;
+    background-color: rgb(255, 236, 129);
+}
+
+
+/*footer*/
+footer {
+    height: 180px;
+    background-color: #eee;
+}

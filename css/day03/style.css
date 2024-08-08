@@ -1,0 +1,32 @@
+html {
+    font-size: 32px;
+    color: rgba(255, 0, 0, 0.5);
+}
+/*
+    CSS의 상솟
+    폰트, 색상 관련된 속성들이
+    하위 요소에 상속(전달) 되는 것
+*/
+
+/*스크롤바 없애기*/
+/*
+body::-webkit-scrollbar {
+    display: none;
+}
+*/
+
+#px {
+    width: 300px;
+    height: 600px;
+}
+/*사이즈는 줄었지만, p태그 이기에 한줄을 다 차지하는 것은 변함 없음*/
+
+#rem {
+    width: 10rem; /* 32x10 = 320px*/
+    height: 20rem; /* 32x20 = 640px*/
+}
+
+#em {
+    width: 10em; /*16x10 = 160px*/
+    height: 20em; /*16x20 = 320px*/
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            .modal-background {
+                  height: 100vh;
+                  width: 100%;
+                  position: fixed;
+                  background-color: rgba(0, 0, 0, 0.7); /*rgba를 통해 투명도를 준 것*/
+                  /* display: flex;
+                  justify-content: center;
+                  align-items: center; */
+
+                  /* opacity: 0.6; */
+                  /*opacity 속성은 자식 요소도 투명해지기 때문에 rgba를 사용하는 것이 좋다*/
+            }
+            .modal {
+                  width: 300px;
+                  height: 200px;
+                  background-color: white;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  /*
+                  모달 요소는 겹침이 있을 수 있기 때문에
+                  flex보다는 absolute를 사용하는 것이 좋음
+                  */
+            }
+      </style>
+</head>
+<body>
+      <div class="modal-background">
+            <div class="modal"></div>
+      </div>
+
+      <dialog open>
+            안녕하세요
+      </dialog>
+      <!--
+            얼마 전까지만 해도 모달은 이런 형태로 구현했지만
+            크롬 37버전부터 지원하는 dialog 태그로 인하여 편리해졌다.
+            자바스크립트를 통하여 쓴다
+      -->
+</body>
+</html>

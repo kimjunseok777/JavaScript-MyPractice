@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // axios = 라이브러리
+        // 라이브러리를 적용하려면 다른 사람이 작성한 코드를 다운로드 받아야한다
+        // https://axios-http.com/kr/docs/intro
+        // html 사용할 때는 CDN 만 보면 된다
+
+        const BACKEND_URL = 'https://jsonplaceholder.typicode.com'
+        // 이렇게 변수화 시켜줘야한다
+        
+        axios.get(BACKEND_URL + "/posts").then((res) => {
+            const posts = res.data
+            const body = document.querySelector('body')
+
+            // for(const post of posts) {
+            //     body.append()
+            // }
+
+            const postInner = posts.map((post) => `
+                <div>${post.title}</div>
+            `).join("")
+            body.innerHTML = postInner
+        })
+        // axios.get(BACKEND_URL + "/comments")
+
+        // const fetchPosts = async => {}
+
+        async function fetchPosts() {
+            const response = await axios.get(BACKEND_URL + "/posts")
+            const posts = response.data
+            console.log(posts)
+        }
+        fetchPosts()
+
+        /*
+            과제 :
+            then 이라고 적혀있는 거 보니 이것은 promise 이다 -> 이것을 async 로 바꿔보자 (함수 실행문 꼭 써야함)
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

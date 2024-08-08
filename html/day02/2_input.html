@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- sign up container start -->
+    <!--p태그 안에 div태그를 넣어서는 안된다 (반대는 됨)-->
+    <div id="login-container">
+        <!-- input이 태그 / type이 속성이다-->
+        <!-- 속성명=속성값 -->
+        이메일: <input type="text" placeholder="이메일을 입력해주세요" value="메이플아이디@naver.com"/>
+        <!--input: 입력을 나타내는 요소, 사용자가 입력할 수 있음, 입력의 종류가 굉장히 포괄적
+                          보통은 form 요소와 함께 쓰인다
+
+                          type에 따라 다양한 입력 요소를 구현할 수 있음
+                          >가장 많이 쓰이는 것은 text이며 default value(기본 값)
+
+                          내용물이 필요없는 단일 태그 > 마지막에 /(슬래시)넣어줘서 닫는 표시 넣어주면 보기에 더 좋다
+                          단일 태그는 시작과 끝을 자기 혼자 동시에 하는 태그를 뜻한다
+        -->
+        <br/> <!-- br태그는 줄바꿈을 해준다(단일태그)-->
+
+        <!-- password -->
+        비밀번호: <input type="password" />
+
+        <!-- like color -->
+        <div>
+            좋아하는 색상: <input type="color" />
+        </div>
+
+        <input type="button" value="회원가입" />
+        <button>회원가입</button>
+        
+        <!-- hobby -->
+        <div>
+            취미:
+            <select>
+                <option value="0">농구</option>
+                <option value="1">자전거</option>
+                <option value="2">축구</option>
+            </select>
+            <!-- 실직적인 값은 value안에 0,1,2 이고 (백엔드한테 정보가 감) 고객 눈에 보이는 것은 농구,자전거,축구이다 -->
+        </div>
+
+        <!-- gender -->
+        <div>
+            성별:
+            <input type="radio" name="gender" value="0"/> 남성
+            <input type="radio" name="gender" value="1" id="female"/> <label for="female">여성</label>
+            <input type="radio" name="gender" value="2"/> 비공개
+        </div>
+        <!--radio는 같은 name을 가진 그룹 중에서 하나만 선택하는 것 (name빼주면 여러 개 선택 가능)-->
+        <!--label은 for속성 값과 같은 id 값을 가진 요소를 연결할 수 있음-->
+
+        <!-- family -->
+        <div>
+            가족관계:
+            <input type="checkbox" /> 본인
+            <input type="checkbox" /> 부모
+            <input type="checkbox" /> 형제
+            <input type="checkbox" /> 자매
+            <!--체크박스는 다중 선택할 때 많이 쓰임, javascript를 이용해서 갯수 제한 걸 수 있음-->
+        </div>
+
+    </div>
+    <!-- sign up container end -->
+    
+</body>
+</html>
