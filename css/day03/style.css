@@ -15,9 +15,16 @@ body::-webkit-scrollbar {
 }
 */
 
+/*모두 폰트사이즈에 관한 것들이 아닌 너비 , 높이에 관한 값이다*/
 #px {
     width: 300px;
     height: 600px;
+
+    font-size: 1em;
+    /*--> em 은 부모의 배율이다 --> 즉, 1em 은 기본 폰트인 16px 이다*/
+
+    /* font-size: 1rem; */
+    /*--> rem 은 html의 배율이다 --> 즉, 1rem 은 32px 이다*/
 }
 /*사이즈는 줄었지만, p태그 이기에 한줄을 다 차지하는 것은 변함 없음*/
 
@@ -29,4 +36,5 @@ body::-webkit-scrollbar {
 #em {
     width: 10em; /*16x10 = 160px*/
     height: 20em; /*16x20 = 320px*/
+    /*부모요소인 16px 의 배율이다 --> em*/
 }

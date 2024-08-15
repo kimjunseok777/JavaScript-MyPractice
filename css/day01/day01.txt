@@ -1,3 +1,5 @@
+
+
 CSS
 (Cascading Style Sheet)
 
@@ -21,8 +23,8 @@ p {
 
 CSS 적용 방법
     1. 내부 스타일링
-        >하나의 html 파일 안에 같이 작성하는 것
-        >head 태그 안에 style 태그를 통해 CSS 문법 적용
+        > 하나의 html 파일 안에 같이 작성하는 것
+        > head 태그 안에 style 태그를 통해 CSS 문법 적용
         ex> <html>
                     <head>
                         <style>

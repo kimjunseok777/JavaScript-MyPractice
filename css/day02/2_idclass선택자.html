@@ -7,11 +7,11 @@
     <!--
         태그 선택자
             html 파일 안의 지정한 모든 요소 선택
-            ex > p { ... } / div { ... }...등
+            ex > p { ... } / div { ... }...등  --  이렇게 id 또는 class 를 명시하지 않으면 태그 모든 요소들을 선택한다
 
 
         id, class 선택자
-            html 파일 안의 틀정 고유 id(단수) 혹은 특정 class(복수) 속성을 지닌 요소를 선택 
+            html 파일 안의 특정 고유 id(단수) 혹은 특정 class(복수) 속성을 지닌 요소를 선택 
             ex>
                 #menu-item( #-아이디명 ) {
                     ...CSS 문법
@@ -21,8 +21,14 @@
                     ...CSS 문법
                 }
                 단, class는 한 요소에 중복 부여가 가능하다
+                id 는 # (샵) , class 는 . (닷) 으로 선택할 수 있다
     -->
     <style>
+        /* *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        } */
         #header {
             height: 48px;
             background-color: yellow;
@@ -34,7 +40,7 @@
         .header-menu-item {
             background-color: red;
         }
-        .w-300 {
+        .w-300 { /*-->  나중에 나온 것이기에 위에 있는 red 를 이 blue 로 덮어씌운다*/
             background-color: blue;
         }
         /*중복된 class에서는 나중에 나오는 것이 기존에 있던 것을 덮어 씌운다*/
