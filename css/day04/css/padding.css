@@ -1,5 +1,12 @@
+
+
+/* *{
+      box-sizing: border-box;
+} */
+
+
 p {
-      border: 1px solid #dfdfdf;
+      border: 1px solid #999;
       /*
       solid 실선, dotted 둥근 점선, dashed 사각 점선, double 이중선
       */
@@ -28,7 +35,7 @@ p {
       margin: 16px 8px;
 } 
 /*
-      마진 세로겹침 현상 (더 긴 마진으로 선택된다)
+      마진 세로겹침 현상 (더 긴 마진으로 선택된다)  ***
       >> 위가 마진이 세로로 8px이고, 아래가 마진이 세로로 16px 이라서
             8px + 16px의 마진이 아니라 16px의 마진만 적용된다.
 
@@ -42,6 +49,10 @@ p {
       padding: 16px;
       border: 10px solid #000;
       background-color: aqua;
+
+      /* box-sizing: border-box; */
+      box-sizing: content-box;
+      /*-->  content-box 가 기본값이다*/
 }
 .border-box {
       width: 300px;
@@ -49,7 +60,14 @@ p {
       padding: 16px;
       border: 10px solid #000;
       background-color: hotpink;
+
       box-sizing: border-box;
-      /*보더든 패딩이든 어떤 짓거리를 해줘도  box_sizing: border-box를
-      해줬기 대문에 width, height 는 300px이다*/
+      /*
+      보더든 패딩이든 어떤 짓거리를 해줘도  box_sizing: border-box 를
+      해줬기 대문에 width, height 는 300px이다
+      -- 지정해준 값이 고정이 되는 것이다 (마진은 해당 안됨 - border, padding 만 해당된다)
+      */
 }
+/*
+      box 두개가 css 속성은 모두 같은데, box-sizing 에 따라서 달라지는 것을 확인할 수 있다
+*/

@@ -6,7 +6,7 @@
       <title>Document</title>
       <!--css link는 위에서 아래로 읽기 때문에 먼저 적용해야 하는 것이 상단으로-->
       <!--공유할 수 있는 것 >> 이 파일에만 써야하는 것-->
-      <link rel="stylesheet" href="./css/reset.css">
+      <link rel="stylesheet" href="./css/reset.css"> <!-- 기본 css reset 을 복사해온 것이다 -->
       <link rel="stylesheet" href="./css/common.css">
       <link rel="stylesheet" href="./css/padding.css">
       <!--
@@ -20,37 +20,44 @@
             *음수 마진과 패딩은 주지 않도록 주의하자!
 
 
-
             테두리 (border)
 
             요소의 크기를 계산하는 방법
+            box-sizing : content-box / border-box
 
             content-box : (default value)
             div -> width : 300px
-            300 + 안쪽여백 + 테두리 두께 -> 300이상 px이 나온다
+            300 + 안쪽여백 + 테두리 두께 -> 이러면 300 이상인 px이 나온다
 
             border-box : (최신 버전)
             테두리를 기준으로 하기 때문에 여백과 테두리를 포함한 크기
+            즉, 300px 로 width 를 정해놓으면 테두리와 패딩이 얼마든 간데, 300px 로 너비값은 고정이다
             div -> width: 300px
 
             * {
                   box-sizing: border-box
             }
+
+            마진 겹침 현상도 잘 공부해보자  --  css 파일에 있다
+            마진 겹침 현상은 좌우가 아니라 "위아래" 만 적용된다 (좌우는 그냥 겹쳐도 마진 서로 더해짐)
       -->
 </head>
 <body> 
+
       <p id="padding-1">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum
             ut autem eligendi optio assumenda porro aperiam eos voluptas,
             doloremque temporibus ea quaerat magnam.
       </p>
+
       <p id="margin-1">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum
             ut autem eligendi optio assumenda porro aperiam eos voluptas,
             doloremque temporibus ea quaerat magnam.
       </p>
+
       <p id="margin-2">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum

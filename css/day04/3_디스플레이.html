@@ -8,20 +8,19 @@
             디스플레이
 
             block :
-                  -한줄을 모두 차지하고 있는 속성
+                  -한줄을 모두 차지하고 있는 속성 - 한 층을 다 차지한다 (width 가 꽉찬다고 보면 된다)
                   -크기를 지정할 수 있음!
                   ex(p, div, h1~h6 ...)
 
             inline :
-                  -안에 있는 요소만큼만 크기가 지정되며, 한 줄을 모두 차지하지 않아
-                  이어지는 요소가 이웃하여 배치
-                  -크기를 지정할 수 없음!!
+                  -안에 있는 요소만큼만 크기가 지정되며, 한 줄을 모두 차지하지 않아서 이어지는 요소가 이웃하여 배치
+                  -크기를 지정할 수 없음!! - 안에 있는 컨텐츠 내용물로 크기가 정해진다
                   ex( a, span, input ... )
 
             inline-block :
                   -block, inline의 속성을 모두 갖고 있는 display 속성
                   -inline 처럼 나란히 배치되면서, 크기를 조정할 수 있음
-                  -블록요소의 세로 정렬을 위해서 사용하는 경우도 많음
+                  -블록요소의 세로 정렬을 위해서 사용하는 경우도 많음 (flex-direction : column)
 
             none :
                   -안 보여주는 것, 화면에서 사라짐
@@ -33,7 +32,7 @@
                   height: 48px;
                   background-color: aqua;
                   display: block;
-                  /*크기 조절 가능*/
+                  /*크기 조절 가능  --  원래라면 span 태그는 inline 방식이기에 크기조절이 불가능하다*/
             }
             ul {
                   list-style: none;
@@ -80,6 +79,11 @@
             .opacity:hover > p {
                   opacity: 1;
             }
+            /*
+                  -->  display: none  -->  화면에 존재하지 않음 (자리 차지하지 않음)
+                  -->  visibility: hidden  -->  화면에 존재하지 않음 (자리는 차지함)
+                  -->  opacity: 0  -->  화면에 존재함 (자리는 차지함)
+            */
 
             /*
             hidden은 화면에서 완전히 사라진 상태, 자리만 차지하고 있기
@@ -94,14 +98,19 @@
 <body>
       <span>안</span>
       <span>녕</span>
+      <!-- span 태그는 inline 방식의 태그이지만, display : block 으로 바꿔줬다 -->
+
       <ul>
             <li>1</li>
             <li>2</li>
             <li>3</li>
+            <!--원래 li 는 block 방식이지만, display : inline-block 을 통해 가로로 배치가 가능한 것이다-->
+            <!--부모인 ul 에 display : flex 넣어줘도 가로로 배치가 가능하다-->
       </ul>
 
       <hr/>
 
+      <!--이렇게 div 태그 안에는 p 태그 넣어줄 수 있다 (p 태그 안에 div 태그는 안된다)-->
       <div class="none">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dignissimos deleniti accusantium 
             obcaecati porro id expedita, placeat <p>laborum quibusdam illum numquam</p> quia assumenda explicabo 
@@ -126,7 +135,6 @@
             자기소개서에 CSS를 얹어보세요
             (font, color, display, position, flex...)
             select, check-box 등을 바꾸는 것은 난이도가 조금 있을 것(아직 거기까진 안해도 됨)
-
       -->
       
 </body>
