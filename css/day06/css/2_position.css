@@ -1,5 +1,7 @@
+
+
 :root {
-      --brand-red: #ff0000;
+      --brand-red: #ff5e5e;
       --brand-yellow: rgb(255, 255, 121);
       --brand-green-lighter: green;
       --gray-100: #eee;
@@ -13,8 +15,10 @@
       16진수나 rgba 같은 것들을 기재해놓는 것이 좋다 --> 디자이너들이 하는 일)*/
 }
 
+/*------------------- header -------------------*/
 header {
       position: fixed;
+      /*fixed 는 viewport 기준으로 위치하고, 고정된다*/
       width: 100%;
       /*
             block 요소라 할지라도 width를 지정해야함
@@ -32,29 +36,36 @@ header {
       */
 }
 
-section {
-      /*마진60px 이 아니라 패딩60px 이기 때문에 section은 왼쪽 맨 상단에 붙어있다*/
-      padding-top: 60px;
+/*------------------- section -------------------*/
+section {      
       /*
       header의 높이가 60px 이어도 section은 왼쪽 맨 상단에 위치한다.
       이유는 header에 fixed로 붕 뜬 상태로 절대 고정을 해줬기 때문에
       블럭형태처럼 밑으로 내려가지 않아, header에 section 요소들이 가려지기 때문이다.
       */
-
       height: 50vh;
       background-color: var(--brand-yellow);
       position: relative;
+
+      /*
+      마진60px 이 아니라 패딩60px 이기 때문에 section은 왼쪽 맨 상단에 붙어있다
+      --> 헤더와 겹쳐있는 상황이기에, 패딩으로 60px 밑으로 내려준 것이다
+      */
+      padding-top: 60px;
+      /*--> relative 이기 때문에 자신이 현재 위치한 것이 기준이 된다*/
 }
 
 section > div {
       position: absolute;
       width: 48px;
       height: 48px;
-      background-color: var(--brand-green-lighter);
+      /* background-color: var(--brand-green-lighter); */
+      background-color: blue;
       color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+      font-weight: bold;font-size: 20px;
       /* top: 36px; */
       /*태그 선택자가 아래에 있는 가상 선택자보다 우선순위가 높아서
       top: 36px 을 주석처리해준 것이다*/
@@ -63,6 +74,9 @@ section > div {
 section > div:first-of-type {
       top: 60px;
       left: 0;
+      /*이 1번 div태그는 상단에 header 와 겹치기 때문에 안보인다*/
+      /*header 가 fixed 이기에 section 기준의 위치와 상단이 겹친다*/
+      /*section은 자신 기준의 위치에서 패딩으로 60px 만큼 밀어준 것이다*/
 }
 section > div:nth-of-type(2) {
       bottom: 10%;
@@ -73,15 +87,22 @@ section > div:nth-of-type(3) {
       left: 0;
       z-index: 1;
 }
+section > div:last-of-type {
+      top: 600px;
+      left: 300px;
+
+      /* z-index: 999; */
+      /*z-index 를 주지 않으면 아래에 있는 main 의 aside 에 덮혀서 반절 가려진다*/
+}
 /*
 absolute :
-
-1. 기준 요소 relative --> relative가 없으면 body태그가 된다
-2. 절대 위치 지정 --> 겹친다면 z-index로 우선순위 지정
-3. top left right bottom을 통해서 기준 요소에서 어느
+      1. 기준 요소 relative --> relative가 없으면 body태그가 된다
+      2. 절대 위치 지정 --> 겹친다면 z-index로 우선순위 지정
+      3. top left right bottom을 통해서 기준 요소에서 어느
       위치로 이동 시킬 것인지 결정
 */
 
+/*------------------- main (sticky) -------------------*/
 main {
       display: flex;
       height: 300vh;
@@ -89,9 +110,12 @@ main {
 
 main > aside {
       position: sticky;
+      
       top: 60px;
-      /*상단의 top이 60px 즈음 남았을 때 이동하겠다*/
-      height: calc(100vh - 60px);
+      /*상단의 top이 60px 즈음 남았을 때 이동하겠다는 의미이다*/
+      
+      /* height: calc(100vh - 60px); */
+      height: 500px;
       width: 320px;
       background-color: cadetblue;
       /*

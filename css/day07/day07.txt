@@ -1,6 +1,8 @@
 
+
 김성용 강사
 korpg95274@gmail.com
+
 
 flex (정렬할 때 많이 사용)
     -> display: flex
@@ -10,8 +12,14 @@ flex (정렬할 때 많이 사용)
     -> flex-wrap (요소가 부모를 넘겼을 때 줄바꿈할 것인지, 사이즈를 축소 시킬 것인지)
     -> flex-grow, flex-shrink, flex-basis (자식 요소한테 주는 속성)
 
+        ) grow : 부모를 채우는 자식요소들간의 비율
+        ) shrink : 부모를 넘겼을 때 자식요소의 축소 정도 조정 (0으로 하면 안줄어든다)
+        ) basis : 자식 요소의 너비값 최소 기준을 정해줄 수 있음
+
 grid (표, 바둑판 형태 만들 때 많이 사용)
     -> colum, row
+    ) grid-template-row
+    ) grid-template-column
 
 -> flex, grid 이것들은 유연하게 요소를 배치하기 위함
 
@@ -22,13 +30,14 @@ grid (표, 바둑판 형태 만들 때 많이 사용)
 트랜지션, 트랜스폼, 애니메이션
 
 transition (전환)
+
     전환하는 과정을 사용자에게 보여줄 것인가를 다룰 수 있는 속성이다.
     대상, 지속 시간 등을 설정할 수 있다.
 
     ex)
-    상단 메뉴가 0px에서 300px로 바뀔 때
+    상단 메뉴가 0px 에서 300px 로 바뀔 때
     높이가 커지는 과정을 사용자에게 보여줄지에 대한 여부이다
-    -> 만약 트렌지션이 없다면, 한번에 크기가 증가
+    -> 만약 트렌지션이 없다면, 한번에 크기가 증가 -> 즉, transition 은 요소가 전환하는 "과정" 을 보여줄 수 있는 것이다
 
     투명(opacity) 효과를 이용하여 서서히 나타나거나
     사라지게하는 용도로도 사용 가능
@@ -37,13 +46,15 @@ transition (전환)
                        ----                     -----              ----
                      property            duration           timing-function
 
+    ) transition : 속성 (opacity, height ...) , 시간 (s) , 기능 (ease, linear ...)  -->  이런식으로 사용하면 된다 (속성은 2개 이상 넣어줄 수 있다)
 
     timing-function :
         * ease  (점점 느리게)
         * linear  (균등하게)
-        ease-in  (점점 빠르게)
-        ease-out  (빨랐다가 느리게)
+        * ease-in  (점점 빠르게)
+        * ease-out  (빨랐다가 느리게)
         * ease-in-out  (빠르게 느리게 빠르게)
+
         step-start  (시간초가 지나기전에)  ->  이거는 사용 잘 하지 않음
         step-end  (시간초자 끝나고나서)  ->  이거는 사용 잘 하지 않음
 

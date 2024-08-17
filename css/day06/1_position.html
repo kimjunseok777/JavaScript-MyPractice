@@ -9,7 +9,7 @@
                   width: 200px;
                   height: 200px;
                   margin: 16px;
-                  border: 1px solid deeppink;
+                  border: 2px solid deeppink;
             }
 
             div.static {
@@ -20,16 +20,16 @@
 
             div.relative {
                   position: relative;
-                  left: 160px;
+                  left: 50px;
                   /*margin과 position의 개념은 다르다*/
                   /*position은 해당 요소의 여백을 포함한 크기를 이동할 수 있다*/
-                  /*relative는 absolute의 기준 요소이다 - "걍 relative는 지가 기준이다"*/
+                  /*relative는 absolute의 기준 요소이다 - "걍 relative는 자기 자신이 기준이다"*/
             }
       </style>
 </head>
 
 <body>
-      <div class="static"></div>
-      <div class="relative"></div>
+      <div class="static">static</div>
+      <div class="relative">relative</div>
 </body>
 </html>

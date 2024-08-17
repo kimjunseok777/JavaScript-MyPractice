@@ -13,18 +13,27 @@
             header > .hide-menu {
                   /* height: 0; */
                   height: 300px;
-                  opacity: 0;
+                  opacity: 0.2;
                   background-color: orange;
-                  transition: opacity 1s linear;
-                  /*트랜지션 all을 넣지 않고 height를 넣은 이유는 all넣으면 전부다 변하기 때문?..*/
+
+                  /*--> 이렇게 콤마 넣어서 속성 2개 이상도 transition 시켜줄 수 있다*/
+                  transition: opacity, height 0.5s linear;
+                  /* transition: opacity 0.5s linear; */
+                  /* transition: height 0.5s linear; */
+
+                  /*트랜지션 all 을 넣지 않고 height를 넣은 이유는 all 넣으면 전부다 변하기 때문?..*/
                   /*트랜지션은 변화가 있을 때 몇 초동안 어떻게 보여줄 것인지를 보여주는 것*/
 
                   /* "높이" 는 지정해주는 것이 아니라 변할 수도 있어서 padding의 형태로 주는 것이 유지보수나 확장에 용이하다*/
             }
 
-            header:hover > .hide-menu {
-                  /* height: 360px; */
+            /* header:hover > .hide-menu {
                   opacity: 1;
+            } */
+
+            .hide-menu:hover {
+                  opacity: 1;
+                  height: 400px;
             }
 
       </style>
