@@ -1,0 +1,111 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+body{
+    padding: 10px;
+}
+
+header{
+    background-color: #999;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+nav{
+    height: 40px;
+    background-color: rgb(75, 75, 255);
+    margin-bottom: 10px;
+
+    display: none;
+    /* max-width: 767px 이하로 내려가면 none 이 block 으로 바뀌면서 보이게 된다 */
+}
+
+main{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+aside{
+    background-color: rgb(75, 75, 255);
+    flex-basis: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+
+    transition: flex-basis 1s ease, background-color 1s ease, color 1s ease;
+}
+aside:hover{
+    flex-basis: 700px;
+    background-color: rgb(29, 29, 189);
+    color: white;
+}
+
+section{
+    /* background-color: #c7c7c7; */
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/*-------------------------------------------------------*/
+
+section>div{
+    width: 300px;
+    height: 200px;
+    background-color: #b9b9b9;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.title>div{
+    flex-grow: 2;
+    height: 30px;
+    background-color: #999;
+}
+.title>div:last-of-type{
+    flex-grow: 1;
+}
+.image{
+    width: 100%;
+    height: 100px;
+    background-color: #747474;
+}
+.text{
+    background-color: #999;
+    flex-grow: 1;
+}
+
+/*-------------------------------------------------------*/
+
+footer{
+    background-color: #999;
+    height: 200px;
+}
+
+/*-------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+    nav{
+        display: block;
+    }
+    aside{
+        display: none;
+    }
+}

@@ -14,7 +14,7 @@ flex (정렬할 때 많이 사용)
 
         ) grow : 부모를 채우는 자식요소들간의 비율
         ) shrink : 부모를 넘겼을 때 자식요소의 축소 정도 조정 (0으로 하면 안줄어든다)
-        ) basis : 자식 요소의 너비값 최소 기준을 정해줄 수 있음
+        ) basis : 자식 요소의 너비값 최소 기준을 정해줄 수 있음 --> % 로 주면 굉장히 유연하게 만들어줄 수 있다
 
 grid (표, 바둑판 형태 만들 때 많이 사용)
     -> colum, row
@@ -37,7 +37,7 @@ transition (전환)
     ex)
     상단 메뉴가 0px 에서 300px 로 바뀔 때
     높이가 커지는 과정을 사용자에게 보여줄지에 대한 여부이다
-    -> 만약 트렌지션이 없다면, 한번에 크기가 증가 -> 즉, transition 은 요소가 전환하는 "과정" 을 보여줄 수 있는 것이다
+    -> 만약 트렌지션이 없다면, 변하는 과정 없이 한번에 크기가 증가 -> 즉, transition 은 요소가 전환하는 "과정" 을 보여줄 수 있는 것이다  ***
 
     투명(opacity) 효과를 이용하여 서서히 나타나거나
     사라지게하는 용도로도 사용 가능
@@ -46,7 +46,8 @@ transition (전환)
                        ----                     -----              ----
                      property            duration           timing-function
 
-    ) transition : 속성 (opacity, height ...) , 시간 (s) , 기능 (ease, linear ...)  -->  이런식으로 사용하면 된다 (속성은 2개 이상 넣어줄 수 있다)
+    ) transition : 속성(opacity, height ...) , 시간(s) , 기능(ease, linear ...)  -->  이런식으로 사용하면 된다 (속성은 2개 이상 넣어줄 수 있다)
+    2개 이상 ex) transition: opacity 0.5s linear, height 0.5s linear;  -->  이렇게 콤마 넣어서 두개 이상 줄 수도 있다
 
     timing-function :
         * ease  (점점 느리게)
@@ -58,6 +59,10 @@ transition (전환)
         step-start  (시간초가 지나기전에)  ->  이거는 사용 잘 하지 않음
         step-end  (시간초자 끝나고나서)  ->  이거는 사용 잘 하지 않음
 
+---------------------------------------------------------------------------
+
+    transform 은 transition 으로 걸어줄 수 있다  -->  ex) transition: transform 0.5s;
+    이렇게 transform 걸어주고, -->  ex) transform: translate(150px, 0); 이렇게 구동 주면 된다
 
 ---------------------------------------------------------------------------
 
@@ -65,7 +70,7 @@ transition (전환)
         요소의 변화의 반복을 설정할 때 사용한다
 
         ex)
-        animation: 애니메이션명(이름 내 맘대로)     duration(시간)    count(횟수)   direction(편도 or 왕복)
+        animation: 애니메이션명(이름 내 맘대로)    duration(시간)    count(횟수)   direction(편도 or 왕복)
 
         @keyframes 애니메이션명 {
             from 혹은 0% {

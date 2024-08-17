@@ -7,22 +7,26 @@
       <style>
             #arrow {
                   position: absolute;
+                  right: 50px;
+
                   top: 50%;
-                  right: 32px;
                   transform: translateY(-50%);
                   /*수직 가운데 정렬 해준 것*/
-                  font-size: 32px;
+
+                  font-size: 50px;
+                  font-weight: bold;
+
+                  /* modifyArrow : id가 arrow인 div태그의 애니메이션 이름을 지정해준 것이다 -> @keyframes 에서 이 애니메이션명 작성하고 사용하면 된다 */
                   animation: modifyArrow 1s ease-out infinite alternate;
                   /*
-                        애니메이션명
-                        변화시간
-                        타이밍
-                        횟수
-                        방향
+                        1. 애니메이션명 : modifyArrow (막 정해주면 됨)
+                        2. 변화시간 : 1s (second)
+                        3. 타이밍 : ease-out  -->  ease , linear , ease-in ... 등등 여러개 있으니까 찾아보자
+                        4. 횟수 : infinite
+                        5. 방향 : alternate
                   */
             }
 
-            /*주석이 없고 이름만으로 유추가 가능한 코드가 최상의 코드*/
             @keyframes modifyArrow {
                   100% {
                         transform: translate(16px, -50%);

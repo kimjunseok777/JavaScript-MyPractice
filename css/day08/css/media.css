@@ -1,15 +1,24 @@
+
+
 header {
   height: 60px;
   background-color: red;
+  color: white;
 }
 /*높이 60px에 배경 빨간색*/
 
+/*--------------------------------------------------------------------------*/
+
 nav {
   height: 40px;
-  display: none;
   background-color: green;
+  color: white;
+  display: none;
+  /* max-width: 767px 이하로 내려가면 none 이 block 으로 바뀌면서 보이게 된다 */
 }
 /*높이 40px에 배경 초록색, 화면에 보이지 않음*/
+
+/*--------------------------------------------------------------------------*/
 
 main {
   display: flex;
@@ -44,12 +53,16 @@ section > article {
 }
 /*자식요소 가로 길이는 280px, 1px의 검정색 테두리가 4방면으로 있다*/
 
+/*--------------------------------------------------------------------------*/
+
 footer {
   height: 160px;
   padding: 32px;
   color: #fff;
   background-color: #000;
 }
+
+/*--------------------------------------------------------------------------*/
 
 /*0~767px 까지는 이라는 얘기*/
 @media screen and (max-width: 767px) {

@@ -20,6 +20,8 @@ header {
       position: fixed;
       /*fixed 는 viewport 기준으로 위치하고, 고정된다*/
       width: 100%;
+      /*원래 header 태그는 block 이라 한층을 다 차지하지만, fixed 를 줬기 때문에
+      너비값을 명시해줘야한다 --> fixed 를 주면 viewport 기준으로 전환되기 때문이다*/
       /*
             block 요소라 할지라도 width를 지정해야함
             position: fixed 시 뷰포트 기준 전환
@@ -53,6 +55,8 @@ section {
       */
       padding-top: 60px;
       /*--> relative 이기 때문에 자신이 현재 위치한 것이 기준이 된다*/
+      /*패딩으로 밀어줬다고 해서, 기준점도 같이 밀리지는 않는다*/
+      /*자식인 3번 div 태그도 top : 60px 을 줘서 딱 맞는 것이다*/
 }
 
 section > div {
@@ -68,7 +72,9 @@ section > div {
       font-weight: bold;font-size: 20px;
       /* top: 36px; */
       /*태그 선택자가 아래에 있는 가상 선택자보다 우선순위가 높아서
-      top: 36px 을 주석처리해준 것이다*/
+      top: 36px 을 주석처리해준 것이다
+      --> 2번 div 는 top 을 부여해주지 않았기 때문에, 이 top : 36px 속성이 먹는다
+      */
 }
 
 section > div:first-of-type {
@@ -105,13 +111,15 @@ absolute :
 /*------------------- main (sticky) -------------------*/
 main {
       display: flex;
-      height: 300vh;
+      height: 200vh;
 }
-
 main > aside {
       position: sticky;
       
-      top: 60px;
+      top: 100px;
+      /*viewport 기준 상단이 100px 남았으면 fixed 로 변한다*/
+
+      /* top: 60px; */
       /*상단의 top이 60px 즈음 남았을 때 이동하겠다는 의미이다*/
       
       /* height: calc(100vh - 60px); */
@@ -126,3 +134,15 @@ main > aside {
       */
 }
 
+/*------------------- footer -------------------*/
+
+footer{
+      background-color: #e0e0e0;
+      color: #b8b8b8;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      font-weight: bold;
+}

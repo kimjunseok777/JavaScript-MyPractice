@@ -12,12 +12,13 @@
 
             header > .hide-menu {
                   /* height: 0; */
+
                   height: 300px;
                   opacity: 0.2;
                   background-color: orange;
 
                   /*--> 이렇게 콤마 넣어서 속성 2개 이상도 transition 시켜줄 수 있다*/
-                  transition: opacity, height 0.5s linear;
+                  transition: opacity 0.5s linear, height 0.5s linear;
                   /* transition: opacity 0.5s linear; */
                   /* transition: height 0.5s linear; */
 
@@ -29,11 +30,12 @@
 
             /* header:hover > .hide-menu {
                   opacity: 1;
+                  height: 500px;
             } */
 
             .hide-menu:hover {
                   opacity: 1;
-                  height: 400px;
+                  height: 500px;
             }
 
       </style>

@@ -1,0 +1,37 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 33, 33);
+    border-radius: 20px;
+    animation: ani 1s ease-out infinite alternate;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 42px;
+}
+
+@keyframes ani{
+    100%{
+        transform: translateY(-30px);
+        background-color: rgb(179, 15, 15);
+        scale: 1.1;
+    }
+}
+

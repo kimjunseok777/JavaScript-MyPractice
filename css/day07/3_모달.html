@@ -9,13 +9,11 @@
                   height: 100vh;
                   width: 100%;
                   position: fixed;
-                  background-color: rgba(0, 0, 0, 0.7); /*rgba를 통해 투명도를 준 것*/
-                  /* display: flex;
-                  justify-content: center;
-                  align-items: center; */
+                  background-color: rgba(0, 0, 0, 0.8);
+                  /*rgba를 통해 투명도를 준 것*/
 
                   /* opacity: 0.6; */
-                  /*opacity 속성은 자식 요소도 투명해지기 때문에 rgba를 사용하는 것이 좋다*/
+                  /*--> opacity 속성은 자식 요소도 투명해지기 때문에 rgba를 사용하는 것이 좋다*/
             }
             .modal {
                   width: 300px;
@@ -32,6 +30,7 @@
             }
       </style>
 </head>
+
 <body>
       <div class="modal-background">
             <div class="modal"></div>

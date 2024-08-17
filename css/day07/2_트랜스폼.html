@@ -6,6 +6,13 @@
       <title>Document</title>
       <link rel="stylesheet" href="../day04/css/reset.css">
       <style>
+
+            *{
+                  box-sizing: border-box;
+                  margin: 0;
+                  padding: 0;
+            }
+
             body {
                   height: 100vh;
                   display: flex;
@@ -15,40 +22,72 @@
                   /*수평이 아닌 수직 정렬 하겠다는 의미*/
                   /*--> body 는 그냥 가운데로 위치시켜주는 css 이다*/
             }
+
             div {
                   width: 300px;
                   height: 200px;
                   border: 1px solid #000;
+                  
+                  /* transition: transform 1s; */
                   transition: transform 0.5s;
-                  /*카드 뒤집기 구동*/
-            }
-            #scale:hover {
-                  border: 1px dashed #f00;
-                  transform: scale(1.5); /*기존보다 1.5배 커진다*/
-                  /*scale은 전 방향으로 사이즈 키울 때 사용
-                  --> 그냥 위드나 헤이트 값을 늘려주면 왼쪽 상단을 기준으로 커진다*/
-                  transform: scale(-1);
-                  /*sclae(-1)을 해주면 좌,우,상,하 가 반전이 된다 (x충, y축)*/
-                  transform: scaleX(-1);
-                  /*이러면 X축만 반전을 시킨다*/
-                  transform: scaleY(-1);
-                  /*Y축만 반전을 시킨다*/
-                  /*==> 카드 뒤집는 것 처럼 "flip" 효과 넣을 때 자주 사용한다*/
+                  /*div 태그 전부 다 transform 을 0.5초로 만들어준 것이다
+                  --> 이제 div 태그들한테 어떤 transform 을 줄것인지 정의해주면 된다*/
             }
 
+            /*------------------ 상하 뒤집기 ------------------*/
+            #scale:hover {
+                  border: 2px dashed #f00;
+
+                  /* transform: scale(1.5); */
+                  /*기존보다 1.5배 커진다*/
+                  /*scale은 전 방향으로 사이즈 키울 때 사용
+                  --> 그냥 위드나 헤이트 값을 늘려주면 왼쪽 상단을 기준으로 커진다*/
+
+                  /* transform: scale(-1); */
+                  /* transform: scale(-0.7); */
+                  /*sclae(-1)을 해주면 좌,우,상,하 가 반전이 된다 (x축, y축)*/
+
+                  /* transform: scaleX(-1); */
+                  /*이러면 X축만 반전을 시킨다*/
+
+                  /* transform: scaleY(2); */
+                  /*y축으로 상하 비율 일정하게 2배 커진다*/
+
+                  transform: scaleY(-1);
+                  /*Y축만 반전을 시킨다*/
+
+                  /*==> 카드 뒤집는 것 처럼 "flip" 효과 넣을 때 자주 사용한다*/
+                  /*==> rotate 의 deg 로도 뒤집기 효과 줄 수 있다 --> X , Y*/
+            }
+
+            /*------------------ 빼꼼 ------------------*/
             #translate:hover {
-                  transform: translate(300px, 200px);
+                  border: 2px dashed #f00;
+
+                  /* transform: translate(300px, 200px); */
                   /* x, y를 모두 주면 대각선 이동*/
-                  transform: translateX(10%);
+                  
+                  /* transform: translateX(20%); */
+                  /* transform: translate(20%, 0); */
+                  transform: translate(150px, 0);
                   /* %는 자기 요소 크기의 비율로 이동이 가능 */
             }
 
+            /*------------------ 좌우 뒤집기 ------------------*/
             #rotate:hover {
+                  border: 2px dashed #f00;
+
                   /* transform: rotate(90deg); */
-                  transform: rotateY(90deg);
+                  /*그냥 rotate 주면 시계방향으로 회전한다 --> X, Y 축을 조정해주면 역동적이게 회전시킬 수 있다*/
+
+                  /* transform: rotateY(180deg); */
                   /*이것도 flip효과를 줄 수 있다*/
 
+                  /* transform: perspective(150px) rotateX(180deg); */
+                  /*위의 상하뒤집기를 더 역동적으로 할 수 있다 --> perspective*/
+
                   transform: perspective(150px) rotateY(180deg);
+                  /*perspective 의 값이 클수록 사용자의 뺨을 때리려고 한다*/
             }
       </style>
 </head>
