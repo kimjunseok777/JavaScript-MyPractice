@@ -43,12 +43,19 @@ aside{
     color: rgba(255, 255, 255, 0.2);
 
     transition: flex-basis 1s ease, background-color 1s ease, color 1s ease;
+
+    animation: asi 1s ease-in infinite alternate;
 }
 aside:hover{
     flex-basis: 700px;
     background-color: rgb(29, 29, 189);
     color: white;
 }
+/* @keyframes asi {
+    100%{
+        flex-basis: 400px;
+    }
+} */
 
 section{
     /* background-color: #c7c7c7; */
