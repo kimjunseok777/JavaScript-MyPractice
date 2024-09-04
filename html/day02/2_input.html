@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- sign up container start -->
-    <!--p태그 안에 div태그를 넣어서는 안된다 (반대는 됨)-->
+    <!-- p태그 안에 div태그를 넣어서는 안된다 (반대는 됨) -->
     <div id="login-container">
         <!-- input이 태그 / type이 속성이다-->
         <!-- 속성명 = 속성값 -->
@@ -24,7 +24,7 @@
         <br/> <!-- br태그는 줄바꿈을 해준다(단일태그)-->
 
         <!-- password -->
-        비밀번호: <input type="password" />
+        비밀번호: <input type="password" placeholder="비밀번호를 입력해주세요"/>
 
         <!-- like color -->
         <div>
@@ -39,7 +39,7 @@
         <!-- hobby -->
         <div>
             취미:
-            <select>
+            <select style="width: 200px; height: 30px;">
                 <option value="0">농구</option>
                 <option value="1">자전거</option>
                 <option value="2">축구</option>
@@ -54,8 +54,8 @@
             <input type="radio" name="gender" value="1" id="female"/> <label for="female">여성</label>
             <input type="radio" name="gender" value="2"/> 비공개
         </div>
-        <!--radio는 같은 name을 가진 그룹 중에서 하나만 선택하는 것 (name빼주면 여러 개 선택 가능)-->
-        <!--label은 for속성 값과 같은 id 값을 가진 요소를 연결할 수 있음-->
+        <!--radio는 같은 name을 가진 그룹 중에서 하나만 선택하는 것 (name빼주면 여러 개 선택 가능 -> 이렇게 name 으로 선택에 제한을 줄 수 있다) -->
+        <!--label은 for속성 값과 같은 id 값을 가진 요소를 연결할 수 있음 ( id , for 속성으로 label 을 클릭해도 체크가 되게 할 수 있다 )) -->
 
         <!-- family -->
         <div>
@@ -68,7 +68,6 @@
         </div>
 
     </div>
-    <!-- sign up container end -->
     <!-- sign up container end -->
     
 </body>
