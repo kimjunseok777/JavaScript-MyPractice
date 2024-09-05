@@ -6,7 +6,9 @@
 
 
 p {
-      border: 1px solid #999;
+      /* border: 1px solid #999; */
+      /* border: 1px dotted #999; */
+      border: 1px dashed #999;
       /*
       solid 실선, dotted 둥근 점선, dashed 사각 점선, double 이중선
       */
@@ -43,10 +45,16 @@ p {
       (좌우는 X, 그냥 더해져서 늘어남)    
 */
 
+
+h2{
+      font-size: 30px;
+      font-weight: bold;
+      margin: 10px;
+}
 .content-box {
       width: 300px;
       height: 300px;
-      padding: 16px;
+      padding: 16px; /*--> boxSizing 설정을 안해줬기에 이 패딩으로도 박스의 사이즈가 늘어난다*/
       border: 10px solid #000;
       background-color: aqua;
 

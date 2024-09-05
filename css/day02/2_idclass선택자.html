@@ -7,30 +7,31 @@
     <!--
         태그 선택자
             html 파일 안의 지정한 모든 요소 선택
-            ex > p { ... } / div { ... }...등  --  이렇게 id 또는 class 를 명시하지 않으면 태그 모든 요소들을 선택한다
+            ex > p { ... } / div { ... } ... 등  --  이렇게 id 또는 class 를 명시하지 않으면 태그 모든 요소들을 선택한다
 
 
         id, class 선택자
             html 파일 안의 특정 고유 id(단수) 혹은 특정 class(복수) 속성을 지닌 요소를 선택 
             ex>
-                #menu-item( #-아이디명 ) {
+                #menu-item {   ->   ( # - 아이디명 )
                     ...CSS 문법
                 }
-
-                .menu-item( .-클래스명 ) {
+                .menu-item {   ->   ( . - 클래스명 )
                     ...CSS 문법
                 }
                 단, class는 한 요소에 중복 부여가 가능하다
                 id 는 # (샵) , class 는 . (닷) 으로 선택할 수 있다
     -->
     <style>
-        /* *{
+        
+        *{
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-        } */
+        }
+         
         #header {
-            height: 48px;
+            /* height: 48px; */
             background-color: yellow;
         }
         .header-menu {
@@ -39,12 +40,15 @@
         }
         .header-menu-item {
             background-color: red;
+            margin: 5px;
         }
         .w-300 { /*-->  나중에 나온 것이기에 위에 있는 red 를 이 blue 로 덮어씌운다*/
             background-color: blue;
         }
-        /*중복된 class에서는 나중에 나오는 것이 기존에 있던 것을 덮어 씌운다*/
-        /*중복된 class는 여러 css 속성을 부여하기 위함 뿐 아니라 동적으로 class를 넣어줄 때도 쓸 수 있다*/
+
+        /* 중복된 class에서는 나중에 나오는 것이 기존에 있던 것을 덮어 씌운다 */
+        /* 중복된 class는 여러 css 속성을 부여하기 위함 뿐 아니라 동적으로 class를 넣어줄 때도 쓸 수 있다 */
+
     </style>
 </head>
 
@@ -56,7 +60,7 @@
             <div class="header-menu-item">저녁메뉴</div>
         </menu>
         <menu class="header-menu">
-            <div class="header-menu-item w-300">아침메뉴</div>
+            <div class="header-menu-item w-300">아침메뉴</div><!--이런식으로 띄어쓰기해서 class 명을 여러개 줄 수 있다-->
             <div class="header-menu-item">점심메뉴</div>
             <div class="header-menu-item">저녁메뉴</div>
         </menu>

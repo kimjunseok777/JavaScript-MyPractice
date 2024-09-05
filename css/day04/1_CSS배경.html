@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <!--
         color
         image
@@ -11,7 +12,7 @@
 
         > cover (화면 가득)
             페이지에 가득차게, 가득 찬 배경
-            but "이미지가 잘릴 수 있음"  --  화면의 전체 사이즈가 기준이기에, 사진의 비율과 안맞으면 잘릴 수 있다
+            but "이미지가 잘릴 수 있음"  --  화면의 전체 사이즈가 기준이기에, 사진의 비율과 배경 사이즈가 안맞으면 잘릴 수 있다
 
         > contain (사진 원본 비율)
             원본 비율에 맞게 늘림, 사진 전체가 보임
@@ -19,7 +20,14 @@
 
             ex>
             background-size: cover 또는 contain
+
+            background-size 라는 css 속성에 cover 또는 contain 속성 부여해주면 된다
+
+            background-image: url( url 입력 );  =>  이거로 배경 이미지 넣어주고
+            background-size: cover / contain;  =>  이거로 배경 이미지 사이즈 정해줄 수 있다
+            background-attachment: fixed;  =>  이거로 배경 이미지를 고정시킬 수 있다
     -->
+
     <style>
       #circle {
             background-color: aquamarine;
@@ -27,36 +35,37 @@
             /* px 단위는 4px 단위로 올려주는 것이 브라우저가 더 빨리 읽는다 */
             height: 48px;
             border-radius: 50%;
-            /*radius 값을 50%이상으로 가면 둥그란 정도가 절만을 넘어가기 때문에 무조건 동그래짐*/
+            /*radius 값을 50%이상으로 가면 둥그란 정도가 절반을 넘어가기 때문에 무조건 동그래짐*/
             display: flex;
             /* display-flex는 자식요소를 부모요소의 크기에 맞춰 강제로 늘리려는 속성이 있다 */
             justify-content: center;
-            align-items: flex-end;
+            align-items: flex-end;  /* -->  수직으로 맨 밑으로 위치시키겠다는 의미이다 */
             /* start, center, end */
             padding-bottom: 4px;
       }
 
       #circle > img {
-            width: 16px;
-            height: 16px;
+            width: 30px;
+            height: 30px;
             aspect-ratio: 1/1;
-            /*요소의 종횡비 ex) 4:3 3:4 16:9, display flex일 때는적용x */
+            /* 요소의 종횡비 ex) 4:3 3:4 16:9, display flex일 때는 적용 X */
       }
 
       body {
             background-color: rgba(0, 0, 0, 0.6);
-             background-image: url(./img.jpg);
+            background-image: url(./img.jpg);
 
-             /* background-size: cover; */
-             /*cover  --  화면을 가득 채우지만, 이미지가 잘릴 수 있음*/
-             background-size: contain;
-             /*contain  --  사진 비율에 맞게 채우지만, 화면에 여백이 생길 수 있음*/
+            /* background-size: cover; */
+            /*cover  --  화면을 가득 채우지만, 이미지가 잘릴 수 있음*/
+            background-size: contain;
+            /* contain  --  사진 비율에 맞게 채우지만, 화면에 여백이 생길 수 있음  -->  사진 비율이 기준이 되기 때문 */
+            /* cover 를 하면 배경화면을 꽉 채우지만, 사진이 잘릴 수 있다 (사진 비율이 어긋날 수 있음)  -->  화면 전체 사이즈가 기준이 되기 때문 */
 
-             background-repeat: no-repeat;
-             height: 300vh;
-             background-attachment: fixed;
-             /*배경화면 고정*/
-             margin: 0px;
+            background-repeat: no-repeat;
+            height: 300vh;
+            background-attachment: fixed;
+            /* 배경화면 고정 넣어줬기에 스크롤 해도 계속 유지된다 */
+            margin: 0px;
       }
 
       .modal-background {
@@ -64,7 +73,7 @@
             height: 100vh;
             width: 100%;
             position: fixed;
-            /*투명도 0.6 의 어두운 화면이 고정되는 것이다*/
+            /* 투명도 0.6 의 어두운 화면이 고정되는 것이다 */
       }
 
     </style>

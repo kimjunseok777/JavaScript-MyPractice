@@ -39,7 +39,12 @@
         <!-- hobby -->
         <div>
             취미:
-            <select style="width: 200px; height: 30px;">
+            <select style="
+                width: 200px;
+                height: 30px;
+                border: 3px solid #9c9c9c;
+                border-radius: 6px;
+            ">
                 <option value="0">농구</option>
                 <option value="1">자전거</option>
                 <option value="2">축구</option>
@@ -55,7 +60,7 @@
             <input type="radio" name="gender" value="2"/> 비공개
         </div>
         <!--radio는 같은 name을 가진 그룹 중에서 하나만 선택하는 것 (name빼주면 여러 개 선택 가능 -> 이렇게 name 으로 선택에 제한을 줄 수 있다) -->
-        <!--label은 for속성 값과 같은 id 값을 가진 요소를 연결할 수 있음 ( id , for 속성으로 label 을 클릭해도 체크가 되게 할 수 있다 )) -->
+        <!--label은 for속성 값과 같은 id 값을 가진 요소를 연결할 수 있음 ( id , for 속성으로 label 을 클릭해도 체크가 되게 할 수 있다 ) -->
 
         <!-- family -->
         <div>
@@ -65,6 +70,7 @@
             <input type="checkbox" /> 형제
             <input type="checkbox" /> 자매
             <!--체크박스는 다중 선택할 때 많이 쓰임, javascript를 이용해서 갯수 제한 걸 수 있음-->
+            <!-- 하나만 선택해야하는 경우에는 radio 를 많이 쓴다 -> name 속성만 같으면 여러개 선택하지 못하기 때문이다 -->
         </div>
 
     </div>

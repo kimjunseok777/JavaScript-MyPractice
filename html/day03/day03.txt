@@ -21,6 +21,10 @@
 
     3. 검색엔진 최적화
 
+    ) 즉, 그냥 div, p 태그만 남발해주지 말고, header, main, footer ... 등등 처럼 이름을 붙여서 사용해주자
+
+    ) header  /  nav  /  main  /  section  /  article  /  aside  /  footer  /  time  /  figure ... 등으로 자주 쓰인다
+
 ----------------------------------------------------------------
 
     (1) header

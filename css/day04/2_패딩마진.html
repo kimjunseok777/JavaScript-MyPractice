@@ -4,8 +4,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
-      <!--css link는 위에서 아래로 읽기 때문에 먼저 적용해야 하는 것이 상단으로-->
-      <!--공유할 수 있는 것 >> 이 파일에만 써야하는 것-->
+      <!-- css link는 위에서 아래로 읽기 때문에 먼저 적용해야 하는 것이 상단으로 -->
+      <!-- 공유할 수 있는 것 >> 이 파일에만 써야하는 것 -->
       <link rel="stylesheet" href="./css/reset.css"> <!-- 기본 css reset 을 복사해온 것이다 -->
       <link rel="stylesheet" href="./css/common.css">
       <link rel="stylesheet" href="./css/padding.css">
@@ -17,7 +17,7 @@
             패딩 : 안쪽 여백 (안쪽 내용물의 위치)
             마진 : 바깥 여백 (다른 요소와의 간격과 관련)
 
-            *음수 마진과 패딩은 주지 않도록 주의하자!
+            *음수 마진과 음수 패딩은 주지 않도록 주의하자!  ==>  좋은 방법이 아니다
 
 
             테두리 (border)
@@ -44,6 +44,7 @@
 </head>
 <body> 
 
+      <!-- 전체 8px 패딩 -->
       <p id="padding-1">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum
@@ -51,6 +52,7 @@
             doloremque temporibus ea quaerat magnam.
       </p>
 
+      <!-- 위아래만 8px 마진 -->
       <p id="margin-1">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum
@@ -58,6 +60,8 @@
             doloremque temporibus ea quaerat magnam.
       </p>
 
+      <!-- 위아래 16px 마진 , 양옆 8px 마진 -->
+       <!-- 위에 있는 margin-1 과 마진 겹침 현상이 발생한다 -->
       <p id="margin-2">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Fugit impedit reprehenderit sit tempore aut, ducimus, dolorum

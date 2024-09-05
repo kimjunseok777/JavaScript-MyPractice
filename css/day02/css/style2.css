@@ -17,6 +17,7 @@ button:hover {
 
 button:disabled {
     color: lightgreen;
+    /* color: red; */
 }
 
 a:link {
@@ -30,12 +31,13 @@ a:visited {
 body::-webkit-scrollbar {
     display: none;
 }
+/* body와 관련이 있는 스크롤바를 안보이게 하는 것이다 */
 
-/*스크롤바 없애기*/
+
+
 ul {
     list-style: none;
     display: flex;
-    height: 300vh;
 }
 ul li:first-of-type {
     color: blue;
@@ -52,6 +54,4 @@ ul li:nth-child(2) {
     color: violet;
 }
 
-/*
-과제!!!
-아무 사이트 html 구조 잡아보기!*/
+/* ul 의 자식으로 li 만 사용했기에 여기서는 nth-child 써도 문제 없다 */

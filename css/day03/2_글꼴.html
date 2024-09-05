@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!--cdn방식-->
-    <!-- 구글폰트 > 노토산스 > Get embed code > link체크 > Copy code > 붙여넣기(cdn) -->
+      <!-- cdn 방식과 font-face 방식이 있다 -->
+
+    <!-- cdn방식 -->
+    <!-- 구글폰트 -> 노토산스 -> Get embed code -> link체크 -> Copy code -> 붙여넣기(cdn) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
@@ -23,9 +25,9 @@
       }
       /*
             ttf > IE9버전부터 부분적 지원, 단점은 압축이 안돼있어서 용량이 크다
-            eot > IE(인터넷 익스플로어)를 지원하는 폰트
+            eot > IE (인터넷 익스플로어) 를 지원하는 폰트
             otf > 운영체제에 직접 다운로드 폴더, 용량이 크다
-            woff > 가장 용량이 작고 빠름, 옛 버전의 브라우저 지원이 되지 않습니다 (가장 최신)
+            woff > 가장 용량이 작고 빠름, 옛 버전의 브라우저 지원이 되지 않습니다 (가장 최신 것이다)
 
             ==> 이것을 모두 기억하라는 것이 아니라
             만약에 프로젝트의 특성 상 구버전 브라우저를 지원해야한다면
@@ -68,7 +70,7 @@
 
                   ------------------------------------------------------------------------------
 
-                  **@font-face** : down load 받아서 쓰는 방법 - 서버가 직접적으로 있다고 하면 이거 좋음
+                  ** @font-face ** : down load 받아서 쓰는 방법 - 서버가 직접적으로 있다고 하면 이거 좋음
                   > 폰트 파일의 형식을 서버에서 직접 저장할 수 있기 때문에
                   어떠한 브라우저에서도 지원 가능
 
@@ -76,7 +78,7 @@
                   // swap 현상 ==> 폰트 대체해주는 현상
 
                   font-display: swap (*fout형태를 띄고 있다)
-                  >기본값, 대체폰트에서 > 설정한 폰트로 바뀜 (못생긴 폰트에서 > 설정한 이쁜 폰트로 변경)
+                  >기본값, 대체폰트에서 > 설정한 폰트로 바뀜 (못생긴 폰트에서 > 설정한 이쁜 폰트로 변경) ==> 이것이 기본값인가??
 
                   font-display: block (*foit)
                   >보여주지 않다가, 폰트 다운로드가 완료되면 폰트를 보여준다
@@ -85,14 +87,14 @@
                   foit > 웹 폰트를 불러오는 과정에서 폰트를 불러오는 웹 브라우저가 텍스트를 보여주지
                               않는 현상 (cdn으로 폰트를 불러오는데 오래걸리면, 다운 다 되기 전까지는
                                                 사용자가 그 폰트를 볼 수 없음)
-                        //텍스트의 노출이 중요하지 않을 때 쓰임
+                        // 텍스트의 노출이 중요하지 않을 때 쓰임
 
                   fout > 반대로 웹 폰트를 불러오는 과정에서 폰트를 불러오는 동안
                               대체 폰트를 보여주는 현상 (기본 폰트였다가 갑자기 이쁜 폰트로 바뀜 현상)
-                        //텍스트를 사용자가 빨리 보는 것이 중요할 때 쓰임
+                        // 텍스트를 사용자가 빨리 보는 것이 중요할 때 쓰임
 
                   ==> 대체할 것인가 or 다 다운로드 받은 뒤 보여줄 것인가를 정하면 됨 (foit or fout)
-                  foit  --  대체후 보여줌  /  fout  --  다운로드 뒤 보여줌
+                  foit  --  대체 후 보여줌  /  fout  --  다운로드 뒤 보여줌
             */
       }
       
@@ -103,6 +105,7 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+
             /*--> ellipsis - '생략' 이라는 뜻*/
             /*반드시 overflow 히든 이어야 하고, white-space가 nowrap이어야 한다*/
       }
@@ -143,12 +146,12 @@
 
       <hr/>
 
-      <!--p태그와 div태그는 처음부터 끝까지 가로 길이를 차지
-      높이는? 안에 있는 내용물 만큼 길어진다.
-      따라서 p태그를 넘는 텍스트가 있을 수가 없습니다.
+      <!-- p태그와 div태그는 처음부터 끝까지 가로 길이를 차지
+      높이는? 안에 있는 내용물 만큼 길어진다. (자식요소의 높이만큼 커진다)
+      따라서 p태그를 넘는 텍스트가 있을 수가 없습니다. (부모의 높이도 자식에 따라서 같이 늘어나기 때문)
 
       근데 만약에 p태그에 크기를 준다면?
-      글자가 p태드를 넘어서 표기됩니다.-->
+      글자가 p태드를 넘어서 표기될 수가 있다 => 여기서 폰트 생략이나 가려주는 css 를 적용시켜줄 수 있다 -->
       <p id="overflow">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae aliquid expedita,
             assumenda qui voluptatum eos repellendus natus. Modi architecto tempora quae vero
