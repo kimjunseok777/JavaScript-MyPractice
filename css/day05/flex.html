@@ -41,12 +41,14 @@
             ul {
                   list-style: none;
                   display: flex;
+
                   /* row-gap: 8px; */
                   column-gap: 8px;
+
                   /*column-gap? grid-gap? 여러 종류의 gap이 있는 거 같은데 잘 모르겠다 - 질문!!!*/
-
-
             }
+
+
             main {
                   display: flex;
                   justify-content: center;
@@ -55,7 +57,6 @@
                   /*수직의 가운데 정렬*/
                   height: calc(100vh - 60px - 180px);
             }
-            
             main > div {
                   display: flex;
             }
@@ -91,6 +92,11 @@
 
             /* "높이"는 함부로 정해주면 위험하다
             나중에 유지보수하거나 수정할 때 많이 귀찮아 질 수 있다*/
+
+            /*
+                  높이는 보통 패딩과 자식요소의 높이만큼 자동으로 늘어나기 때문에
+                  높이를 주기 전에 기획을 한번 생각해봐야한다
+            */
 
             footer {
                   height: 180px;
