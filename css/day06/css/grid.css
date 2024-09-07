@@ -1,18 +1,17 @@
 
 
+
 * {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
 }
 
-
 /*---------------------------header---------------------------*/
 
 #main-grid-wrapper {
       display: grid;
-
-      /*grid-template는 "행" 과 "열" 을 정할 때 사용된다*/
+      /* grid-template는 "행" 과 "열" 을 정할 때 사용된다 */
 
       /* grid-template-rows: 60px 360px 100vh 180px; */
       /* 4행이 만들어진다 */
@@ -22,16 +21,17 @@
 
       /* 4행 2열이 만들어 진다 */
 
-      /*선생님이 여기서 1~3까지 정의해줬다고 말씀해주셨는데,
-      어떤 부분이 정의를 내려준 것인지 이해가 되지 않는다 -> 꼭 질문!!!*/
+      /* 선생님이 여기서 1~3까지 정의해줬다고 말씀해주셨는데,
+      어떤 부분이 정의를 내려준 것인지 이해가 되지 않는다 -> 꼭 질문!!! */
       grid-template: 
             "header header" 60px
             "banner banner" 360px
             "aside main" 1fr
             "footer footer" 180px
-            / 320px 1fr
+            /*여기까지는 모두 행들의 높이를 나타낸다*/
+            / 320px 1fr /* -->  이렇게 하면 aside 가 320 이고 main 은 1fr (나머지 비율 다 차지) 이 된다 */
       ;
-      /*grid-template 는 계산하기 복잡하니까 새로 나온 기능 >
+      /* grid-template 는 계산하기 복잡하니까 새로 나온 기능 >
       훨씬 편리하게 작성할 수 있다
       마찬가지로 "4행 2열" 을 구현한 것이다
       (60px 360px 1fr 180px) (320px 1fr)
@@ -47,7 +47,7 @@
 #main-header {
       background-color: rgb(255, 169, 169);
       /* grid-column: 1 / 3; */
-      /*가로 병합*/
+      /* 가로 병합 */
 
       grid-area: header;
 }
@@ -58,7 +58,7 @@
 #main-banner-wrapper {
       background-color: rgb(255, 255, 166);
       /* grid-column: 1 / 3; */
-
+      
       grid-area: banner;
 }
 
