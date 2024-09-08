@@ -58,11 +58,12 @@
                   /* transform: scaleY(2); */
                   /*y축으로 상하 비율 일정하게 2배 커진다*/
 
-                  transform: scaleY(-1);
+                  transform: perspective(150px) rotateX(180deg);
+                  /* transform: scaleY(-1); */
                   /*Y축만 반전을 시킨다*/
 
                   /*==> 카드 뒤집는 것 처럼 "flip" 효과 넣을 때 자주 사용한다*/
-                  /*==> rotate 의 deg 로도 뒤집기 효과 줄 수 있다 --> X , Y*/
+                  /*==> rotate 의 deg 로도 뒤집기 효과 줄 수 있다 --> X , Y 축을 정해주고 deg 각도를 정해서 돌려줄 수 있다*/
             }
 
             /*------------------ 빼꼼 ------------------*/

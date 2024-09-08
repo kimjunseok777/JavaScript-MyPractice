@@ -19,16 +19,17 @@
                   /* modifyArrow : id가 arrow인 div태그의 애니메이션 이름을 지정해준 것이다 -> @keyframes 에서 이 애니메이션명 작성하고 사용하면 된다 */
                   animation: modifyArrow 1s ease-out infinite alternate;
                   /*
-                        1. 애니메이션명 : modifyArrow (막 정해주면 됨)
+                        1. 애니메이션명 : modifyArrow (내맘대로 정해주고, keyframes에서 일치하게만 작성하면 된다)
                         2. 변화시간 : 1s (second)
-                        3. 타이밍 : ease-out  -->  ease , linear , ease-in ... 등등 여러개 있으니까 찾아보자
+                        3. 방식 : ease-out  -->  ease , linear , ease-in ... 등등 여러개 있으니까 찾아보자 (점점느리게, 점점빠르게 ... 등등 여러개 있다)
                         4. 횟수 : infinite
-                        5. 방향 : alternate
+                        5. 편도or왕복 : alternate
                   */
             }
 
             @keyframes modifyArrow {
                   100% {
+                        /* transform: translate(16px); */
                         transform: translate(16px, -50%);
                         /*덮어 씌워지기 때문에 -50%써준 것*/
                   }

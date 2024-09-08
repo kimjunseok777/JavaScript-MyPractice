@@ -1,4 +1,5 @@
 
+
 git branch  >  이거로 내 브랜치명을 확인할 수 있다 ("main" or "master")
 
 * 브랜치명이 "master" 로 되어있다면 "main" 으로 바꿔줘야한다

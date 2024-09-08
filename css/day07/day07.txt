@@ -13,7 +13,7 @@ flex (정렬할 때 많이 사용)
     -> flex-grow, flex-shrink, flex-basis (자식 요소한테 주는 속성)
 
         ) grow : 부모를 채우는 자식요소들간의 비율 (자식요소 모두 1을 부여해주면  -->  1 : 1 : 1 ... 이 된다)
-        ) shrink : 부모를 넘겼을 때 자식요소의 축소 정도 조정 (0으로 하면 안줄어든다)
+        ) shrink : 부모를 넘겼을 때 자식요소의 축소 정도 조정 (0으로 하면 안줄어든다)  -->  축소 비율을 0으로 만들어줘서 가로 배너 같은 것들을 만들어 줄 수 있다
         ) basis : 자식 요소의 너비값 최소 기준을 정해줄 수 있음 (min-width 값을 정해주는 것이다) --> % 로 주면 굉장히 유연하게 만들어줄 수 있다
 
 grid (표, 바둑판 형태 만들 때 많이 사용)
@@ -31,9 +31,11 @@ grid (표, 바둑판 형태 만들 때 많이 사용)
 
 transition (전환)
 
-    전환하는 과정을 사용자에게 보여줄 것인가를 다룰 수 있는 속성이다.  ***
+    전환하는 과정을 사용자에게 어떻게 보여줄 것인가를 다룰 수 있는 속성이다.  ***
     대상, 지속 시간 등을 설정할 수 있다.  ***
-    ) transition 은 속성이 전환하는 과정을 사용자에게 이 속도로 이렇게 보여줄 것이라고 정의한 것이다
+    ) transition 은 "속성" 이 전환하는 과정을 사용자에게 이 "속도" 로 "이렇게" 보여줄 것이라고 정의하는 것이다
+    ex) transition : transform 1s linear;  -->  이런식으로 사용할 수 있다  -->  속성 부분에 all 을 적어서 모든 속성을 가리킬 수도 있다
+    ex) transition : all 1s ease;
 
     ex)
     상단 메뉴가 0px 에서 300px 로 바뀔 때
@@ -43,9 +45,9 @@ transition (전환)
     투명(opacity) 효과를 이용하여 서서히 나타나거나
     사라지게하는 용도로도 사용 가능
 
-    transition: all(height, width) 2s               ease
-                       ----                     -----              ----
-                     property            duration           timing-function
+    transition: all(height, width ... )   2s               ease
+                       ----                           -----              ----
+                     property                  duration       timing-function
 
     ) transition : 속성(opacity, height ...) , 시간(s) , 기능(ease, linear ...)  -->  이런식으로 사용하면 된다 (속성은 2개 이상 넣어줄 수 있다)
     2개 이상 ex) transition: opacity 0.5s linear, height 0.5s linear;  -->  이렇게 콤마 넣어서 두개 이상 줄 수도 있다
@@ -62,7 +64,7 @@ transition (전환)
 
 ---------------------------------------------------------------------------
 
-    transform 은 transition 으로 걸어줄 수 있다  -->  ex) transition: transform 0.5s;
+    transform 은 transition 으로 걸어줄 수 있다  -->  ex) transition: transform 0.5s ease;
     이렇게 transform 걸어주고, -->  ex) transform: translate(150px, 0); 이렇게 구동 주면 된다
 
     마찬가지로, 속성 넣어줄 때 transform 직접적으로 적어도 되고, all 적어도 된다
@@ -110,5 +112,6 @@ transition (전환)
             } to{
                 width: 300px;
             }
+            
         }
 

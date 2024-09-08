@@ -15,9 +15,9 @@
 .box{
     width: 200px;
     height: 200px;
-    background-color: rgb(255, 33, 33);
+    background-color: rgb(179, 15, 15);
     border-radius: 20px;
-    animation: ani 1s ease-out infinite alternate;
+    animation: ani 0.5s ease-out infinite alternate;
 
     display: flex;
     justify-content: center;
@@ -30,8 +30,8 @@
 @keyframes ani{
     100%{
         transform: translateY(-30px);
-        background-color: rgb(179, 15, 15);
-        scale: 1.1;
+        background-color: rgb(255, 33, 33);
+        scale: 1.2;
     }
 }
 
