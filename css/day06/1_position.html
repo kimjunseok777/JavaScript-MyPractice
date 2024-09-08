@@ -5,6 +5,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
       <style>
+
+            /* *{
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+            } */
+
             div {
                   width: 200px;
                   height: 200px;
@@ -15,11 +22,14 @@
             div.static {
                   position: static;
                   left: 160px;
+                  /* left: 1000px; */
+                  /* left 로 포지션을 바꿔줘도 아무런 효과가 없다  ==>  static은 기본값이기 때문에 position속성을 부여하지 않은 것이나 마찬가지이다 */
             }
             /*그냥 static만 써주면 기준점이 없기 때문에 위치를 지정해줘도 이동하지 않는다*/
 
             div.relative {
                   position: relative;
+                  /* top: -50px; */
                   left: 50px;
                   /*margin과 position의 개념은 다르다*/
                   /*position은 해당 요소의 여백을 포함한 크기를 이동할 수 있다*/

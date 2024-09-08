@@ -48,6 +48,7 @@ section {
       height: 50vh;
       background-color: var(--brand-yellow);
       position: relative;
+      /* 기준점은 padding-top: 20px 을 없앤 것이 기준점이 된다 */
 
       /*
       마진60px 이 아니라 패딩60px 이기 때문에 section은 왼쪽 맨 상단에 붙어있다
@@ -115,9 +116,9 @@ main {
 }
 main > aside {
       position: sticky;
-      
       top: 100px;
       /*viewport 기준 상단이 100px 남았으면 fixed 로 변한다*/
+      /* sticky는 viewport기준이 되는데, 이렇게 top이나 left만 정해주면 된다 */
 
       /* top: 60px; */
       /*상단의 top이 60px 즈음 남았을 때 이동하겠다는 의미이다*/
