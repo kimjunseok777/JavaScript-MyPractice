@@ -13,6 +13,7 @@ nav {
   height: 40px;
   background-color: green;
   color: white;
+
   display: none;
   /* max-width: 767px 이하로 내려가면 none 이 block 으로 바뀌면서 보이게 된다 */
 }
@@ -23,18 +24,21 @@ nav {
 main {
   display: flex;
   height: 100vh;
+  /* 자식들 높이 지정 안해주면 부모의 높이 100vh만큼 꽉 채운다 */
 }
 /*자식이 수평 정렬, 높이는 현재 사용자가 보고 있는 브라우저의 높이*/
 
 main > aside {
-  height: 100%;
+  /* height: 100%; */
+  /* 이미 부모가 flex를 줬기에 높이 부여하지 않아도 세로로 꽉 채운다 */
   width: 480px;
   background-color: yellow;
 }
-/*높이 부모요소 크기만큼, 너비는 480px에 배경 노란색*/
+/* 높이 부모요소 크기만큼, 너비는 480px에 배경 노란색 */
 
 main > section {
-  width: 100%;
+  /* width: 100%; */
+  flex-grow: 1;
   padding: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -50,6 +54,8 @@ main > section {
 section > article {
   flex-basis: 280px;
   border: 1px solid #000;
+  /* article도 마찬가지로 aside처럼 부모에 flex 부여해줬기에
+  세로높이 따로 안정해줘도 세로로 꽉 채운다 --> 100vh만큼 꽉 채운다 */
 }
 /*자식요소 가로 길이는 280px, 1px의 검정색 테두리가 4방면으로 있다*/
 
@@ -64,8 +70,10 @@ footer {
 
 /*--------------------------------------------------------------------------*/
 
-/*0~767px 까지는 이라는 얘기*/
+/* media screen 은 브라우저 창의 길이를 의미이한다 */
+/* 0~767px 까지는 이라는 얘기 */
 @media screen and (max-width: 767px) {
+  /* 브라우저 width가 767px 이하라면 속성들이 이렇게 바뀐다고 정의해준 것이다 */
   main > aside {
     display: none;
   }
@@ -77,6 +85,7 @@ footer {
 
 /*768~1280px 까지는 이라는 얘기*/
 @media screen and (min-width: 768px) and (max-width: 1280px) {
+  /* 브라우저 width가 767px~1280px 사이일 때를 정의해준 것이다 */
   main > aside {
     width: 280px;
   }
@@ -85,6 +94,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
   }
 }
 
