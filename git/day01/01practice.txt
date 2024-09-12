@@ -8,6 +8,7 @@ git branch  >  이거로 내 브랜치명을 확인할 수 있다 ("main" or "ma
 
 * 깃허브 등록할 때, 폴더는 내용이 비워져있으면 올라가지 않는다.
       --> 그래서 예시 "example"을 두거나 / 닷 gitkeep( .gitkeep ) 파일 만들어서 올리면 폴더도 같이 올라간다. (내용물이 비어있는 폴더일 때)
+      --> 내용이 비어있는 폴더라도 올릴 수 있게 만들어준다  -->  .gitkeep 파일 만들어주면 된다
 
 * 왼쪽 파일들 list에 초록색 컬러로 뜨는 것은 git 했을 때 등록할 수 있는 폴더들을 애기한다 (색 안바뀌어도 상관 없다)
 
@@ -27,7 +28,7 @@ git branch  >  이거로 내 브랜치명을 확인할 수 있다 ("main" or "ma
 
 * git config --list   --->   내가 적었던 이메일 / 닉네임을 확인할 수 있다. (git config --global user.name/email)
 
-* git remote remove 별병  --->  별명 삭제
+* git remote remove 별병  --->  별명 삭제 (삭제하면 레포지토리 연결 다시 시켜줘야한다)
 
 
 ------------------------------------------------------------------------------------------------------------------
@@ -41,6 +42,7 @@ git flow (git 순서)
       -> cd git > cd web 으로 해도 되는데, "/" 를 사용 하여 바로 이동할 수도 있다 --> cd git/web  이런 식으로
 
       -> cd C:\Users\USER\Desktop\202402_front_ksy\git\web1 (이런식으로 경로 복사를 하여 이동할 수도 있다, ' 절대경로 ' 라고 한다)
+      -> init 완료해주면 등록할 패키지 폴더에 .git 폴더 생성돼있는 것을 확인할 수 있다
 
 
 
@@ -58,10 +60,10 @@ git flow (git 순서)
 >> 3번 내용은 내 컴퓨터에 "최초 1회" 만 해주면 된다  --> 이미 했다면 3번은 생략
 3. 컴퓨터 환경 설정에 본인의 깃허브 이메일과 닉네임을 등록
 
-      -> git config --global user.email 깃허브 이메일 주소
-      -> git config --global user.name 깃허브 닉네임
+      -> git config --global user.email 깃허브 이메일 주소  -->  ( wnszn5183@naver.com )
+      -> git config --global user.name 깃허브 닉네임  -->  ( kimjunseok777 )
 
-      -> 이메일과 닉네임을 모두 입력했으면, "git config --list" 로 이메일과 닉네임을 잘 입력했는지 확인할 수 있다 > "q" 를 누르면 바로 다시 나갈 수 있다
+      -> "이메일" 과 "닉네임" 을 모두 입력했으면, "git config --list" 로 이메일과 닉네임을 잘 입력했는지 확인할 수 있다 > "q" 를 누르면 바로 다시 나갈 수 있다
       git config --list 했는데 이메일이나 닉네임이 안나온다면 enter 를 누르면 다음줄로 이동하니 enter 눌러서 확인할 수 있다
 
 
@@ -70,6 +72,8 @@ git flow (git 순서)
       -> git remote add origin '등록할 레포지토리 주소'     ex) git remote add origin https://github.com/kimjunseok777/test1.git
 
       *add 뒤에 "origin" 은 내 맘대로 변경해줘도 된다 > 원격 저장소에 이름(별명) 정해주는 것 (origin 이름은 내 마음대로 정해줘도 됨, 보통 origin 많이 씀)
+
+      -> 여기서 정해준 별병 (origin) 으로 원격저장소(레포지토리)에 연결할 수 있는 것이다
 
       -> 원격과 로컬 저장소를 연결했으면, 잘 연결됐는지 확인하려면  git remote  를 입력해줘서 확인할 수 있다
             "git remote" -> 입력했는데, 내가 작성한 원격 저장소 별명 (origin) 이 뜨면 잘 연결되었다는 소리이다.
@@ -102,6 +106,7 @@ git flow (git 순서)
             -> git pull origin main --rebase   >>  (작성해주면 코드 다운로드 받고, 저장소와 히스토리를 동기화 시켜줄 수 있다)
                   (history가 다르다고 하는 것은 아마 README.md 를 체크해줘서일 것이다. 이때 git pull origin main 해주면, "너 왜 관계 없는 파일도 다운받으려 하는 거야?" 라는 말이 뜬다
                    -> 처음에 커밋메세지를 " init " 으로 작성해줬었는데, README.md 파일은 " initial commit " 으로 작성되어있기 때문이다  ->  애초에 파일의 뿌리가 다르다는 소리
+                   -> 그리고 레포지토리에는 README.md 파일이 있는데, 현재 등록하려는 패키지에는 이 파일이 없기 때문에 pull 해줘야하는 것이다
                    -> 이때는 이제 git pull origin main --rebase  해주면 된다)  ==> 지금은 오류 확인을 위해 깃허브에 new 레포지 만들때 README 체크해둔 것이다
 
                    -> 이렇게 "--rebase" 까지 완료해주면, 왼쪽 파일에 README.md 파일이 새로 생긴다
@@ -124,9 +129,9 @@ git flow 순서 간단 정리
 
       2. git init   >   (내 컴퓨터에 저장할 "로컬저장소"를 만드는 것)  >  (이제 내 컴퓨터 "로컬저장소" 에 저장한 코드를 "원격저장소" 로 저장하는 과정들이 앞으로 나온다)
 
-      3. git config --global user.email
-            git config --global user.name
-            (내 컴퓨터에 최초 1회만 해주면 된다  ->  했다면 생략)
+      3. git config --global user.email  -->  ( wnszn5183@naver.com )
+            git config --global user.name  -->  ( kimjunseok777 )
+            ( 내 컴퓨터에 최초 1회만 해주면 된다  ->  했다면 생략 )
             -->  " git config --list "  이메일 / 닉네임 잘 입력했는지 재확인
 
       4. git remote add '별명' '등록할 레포지토리 주소'   >   origin 은 내가 작성할 " 레포지토리별명 " 이기에 알아볼 수 있게끔 맘대로 작성 ok
@@ -138,7 +143,7 @@ git flow 순서 간단 정리
 
       6. git commit -m 'init'  >  init 부분은 알아볼 수 있게끔 마음대로 작성 ok (커밋메세지) -> (커밋할 때 뜨는 메세지라는 뜻)
             -> (로컬저장소에 히스토리를 저장하는 것)
-            -> com(함께)  mit(보내다)  ->  commit(함께 보내다) 라는 뜻이다
+            -> com(함께)  mit(보내다)  ->  commit(함께 보내다) 라는 뜻이다 (등록할 메세지를 함께 보내는 것이다)
 
       7. git push origin main
             -> 동기화 시켜야 한다는 오류가 뜬다면  ->  git pull origin main --rebase
@@ -165,3 +170,5 @@ git flow 순서 간단 정리
       4. git commit -m '커밋메세지'
 
       5. git push origin main
+
+      ==>  이미 등록된 레포지토리라면, add / commit / push 만 해주면 된다

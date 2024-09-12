@@ -1,3 +1,5 @@
+
+
 이력서를 작성할 때는 여러분들의 개발자로서의 "가치관" 이 들어가야 한다.
 이력서에서 '신뢰' 라는 것을 얻어야 한다.
 
@@ -10,13 +12,13 @@ day03 은 git 복습 위주의 수업
 
 1. 로컬 저장소 생성   code ) git init
 
-2. 코드를 개발 -> 로컬 저장소에 저장   code ) git add / git commit -m
+2. 코드를 개발 -> 로컬 저장소에 저장   code ) git add / git commit -m / git push
 
 3. 깃허브에 원격저장소 생성   code ) New repository
 
-4. 로컬저장소와 원격저장소를 연결   code ) git remote add
+4. 로컬저장소와 원격저장소를 연결   code ) git remote add  별명  레포지토리주소
 
-5. 로컬 저장소에 있는 코드를 원격 저장소에 저장   code ) git push
+5. 로컬 저장소에 있는 코드를 원격 저장소에 저장   code ) git push  별명  브랜치명
 
 ----------------------------------------------------
 
@@ -30,7 +32,7 @@ day03 은 git 복습 위주의 수업
 
 ** 최초 커밋 이후, 팀일때
 
-1. 팀원은 생성된 레포지토리 주소를 클론해야한다   code ) git clone
+1. 팀원은 생성된 레포지토리 주소를 클론해야한다   code ) git clone  레포지토리주소
 
 2. 팀원은 각자 분배받은 테스크에 따라 분기를 생성   code ) git brach / git checkout
 
@@ -46,20 +48,20 @@ day03 은 git 복습 위주의 수업
 7. 합병 시 충돌이 발생할 수 있음 (팀원이 동일한 부분을 수정했을 경우 발생) -> 해결을 해야함
 
 8. 원격 저장소 (깃허브) 웹사이트 내에서 해결이 가능
-    -> 너무 수정할 곳이 많으면 vscode 같은 편집기를 이용해서 직접 수정
+    -> 너무 수정할 곳이 많으면 vscode 편집기를 이용해서 직접 수정
 
 9. 합병 해야하는 브랜치 (dev) 와 내가 개발을 진행한 브랜치 (feat/ooo) 를 병합해야하는데,
     현재 내가 가진 dev 브랜치가 가장 최신의 것이 아니라면 가장 최신의 상태로 동기화 시켜줘야 한다
     (아마 최신의 것이 아닐 거다)
-        code ) 여러분의 코드가 feat/ooo 이라면 -> git checkout main 으로 이동 -> git pull origin main 으로 동기화
+        code ) 여러분의 브랜치가 feat/ooo 이라면 -> git checkout main 으로 이동 -> git pull origin main 으로 동기화
             -> 그리고 다시 내 브랜치로 이동  code ) git checkout feat/ooo -> git merge main
 
 10. 코드가 동기화 됐다면, 합병 명령어를 통해 편집툴 (vscode) 에서 코드 합병 후 코드를 다시 원격저장소에 저장
     code ) git add  ->  git merge --continue  ->  git push origin feat/ooo  ->  합병 완료
 
 
-
 ------------------------------------------------------------------------------------------------------------------------
+
 
 day03 : merge 다시 한번 복습  /  깃허브 pages 정적 호스팅  /  Pull request Template
 
