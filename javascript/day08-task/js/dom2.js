@@ -1,4 +1,5 @@
 
+
 const $loadDisplay = document.querySelector('#display > form > p')
 
 window.onload = () => {
